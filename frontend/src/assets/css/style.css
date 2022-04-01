@@ -5984,7 +5984,8 @@ select:-webkit-autofill:focus {
 	background-image: url(../images/cart-page.jpg);
 }
 
-#not-found-page {
+#not-found-page,
+#contacts-page {
 	background-image: url(../images/home/hero-bg-min.jpg);
 }
 
