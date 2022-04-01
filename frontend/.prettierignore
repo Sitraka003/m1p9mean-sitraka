@@ -2,3 +2,6 @@
 dist
 .angular
 .vscode
+*.min.js
+*.min.css
+modernizr.custom.js
