@@ -7,6 +7,7 @@ import { NavbarComponent } from "./layouts/navbar/navbar.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { FooterComponent } from "./layouts/footer/footer.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 
 @NgModule({
 	declarations: [
@@ -15,6 +16,7 @@ import { FooterComponent } from "./layouts/footer/footer.component";
 		PageNotFoundComponent,
 		HomeComponent,
 		FooterComponent,
+		ContactComponent,
 	],
 	imports: [BrowserModule, AppRoutesModule],
 	providers: [],
