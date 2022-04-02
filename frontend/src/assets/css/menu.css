@@ -223,47 +223,6 @@
 }
 
 /***************************************************
-  Center menu
-****************************************************/
-
-.logoCenter {
-	display: none;
-}
-
-.center-menu-1 .navik-menu > ul:first-child {
-	padding: 0;
-}
-
-/***************************************************
-  Dark version menu
-****************************************************/
-
-.navik-header.header-dark {
-	background-color: #111;
-}
-
-.navik-header.header-dark .line-menu,
-.navik-header.header-dark .dropdown-plus::before,
-.navik-header.header-dark .dropdown-plus::after {
-	background-color: #fff;
-}
-
-.header-dark .navik-menu ul li > a {
-	color: #fff;
-}
-
-.header-dark .navik-menu ul li.current-menu > a,
-.header-dark .navik-menu ul li:hover > a {
-	color: #26c6da;
-	background-color: #313131;
-}
-
-.header-dark .navik-menu ul ul li > a {
-	color: #c1c1c1;
-	background-color: #212121;
-}
-
-/***************************************************
   Overlay dropdown plus
 ****************************************************/
 
@@ -1034,87 +993,6 @@
 }
 
 /***************************************************
-  Overlay menu dark
-****************************************************/
-.header-dark .nav-menu-wrapper {
-	background-color: #111;
-}
-
-.header-dark .navik-menu-overlay > ul > li > .menu-overlay-link a {
-	color: #fff;
-}
-
-.header-dark .navik-menu-overlay > ul ul li a {
-	color: #a1a1a1;
-}
-
-.header-dark .overlay-dropdown-plus::before,
-.header-dark .overlay-dropdown-plus::after {
-	background-color: #717171;
-}
-
-.header-dark .menu-social-media a {
-	border-color: #fff;
-	opacity: 0.2;
-}
-
-.header-dark .menu-social-media a:hover {
-	opacity: 1;
-}
-
-.navik-header-overlay.header-dark .burger-menu.menu-open {
-	background-color: #000;
-}
-
-.header-dark .navik-menu-overlay > ul > li > ul > li::after,
-.menu-slide.header-dark .navik-menu-overlay > ul ul li a::before {
-	background-color: #515151 !important;
-}
-
-/***************************************************
-  Overlay menu background color
-****************************************************/
-
-.header-color-bg .nav-menu-wrapper {
-	background-color: #006aa1;
-}
-
-.header-color-bg .navik-menu-overlay > ul > li > .menu-overlay-link a {
-	color: #fff;
-}
-
-.header-color-bg .navik-menu-overlay > ul ul li a {
-	color: #fff;
-}
-
-.header-color-bg .menu-social-media a {
-	border-color: #fff;
-}
-
-.header-color-bg .navik-menu-overlay > ul > li > ul li::after,
-.header-color-bg .overlay-dropdown-plus::before,
-.header-color-bg .overlay-dropdown-plus::after,
-.menu-slide.header-color-bg .navik-menu-overlay > ul ul li a::before {
-	background-color: #fff !important;
-}
-
-.header-color-bg
-	.navik-menu-overlay
-	> ul
-	> li.current-menu
-	> .menu-overlay-link
-	a,
-.header-color-bg .overlay-dropdown-plus:hover + a,
-.header-color-bg .overlay-menu-hover > .menu-overlay-link a {
-	color: #fff !important;
-}
-
-.header-color-bg .navik-menu-overlay > ul > li > .menu-overlay-link a:hover,
-.header-color-bg .navik-menu-overlay > ul ul li a:hover {
-	color: rgba(255, 255, 255, 0.8) !important;
-}
-
-/***************************************************
   Overlay menu background image
 ****************************************************/
 
@@ -1461,43 +1339,6 @@
 }
 
 /***************************************************
-  Fixed sidebar menu dark
-****************************************************/
-.navik-fixed-sidebar.sidebar-dark {
-	background-color: #111;
-}
-
-.navik-fixed-sidebar.sidebar-dark .menu-social-media a {
-	border-color: #fff;
-	opacity: 0.2;
-}
-
-.navik-fixed-sidebar.sidebar-dark .menu-social-media a:hover {
-	opacity: 1;
-}
-
-.sidebar-dark ~ .navik-side-content > .logo {
-	background-color: #111;
-}
-
-.sidebar-dark .navik-menu-fixed > ul > li > a {
-	color: #fff;
-}
-
-.sidebar-dark .navik-menu-fixed > ul ul a {
-	color: #a1a1a1;
-}
-
-.sidebar-dark .navik-menu-fixed > ul ul a::before {
-	background-color: #515151;
-}
-
-.sidebar-dark .overlay-dropdown-plus::before,
-.sidebar-dark .overlay-dropdown-plus::after {
-	background-color: #717171;
-}
-
-/***************************************************
   Fixed sidebar menu background color
 ****************************************************/
 .navik-fixed-sidebar.sidebar-color-bg {
@@ -1628,17 +1469,6 @@
 	background-color: rgba(0, 0, 0, 0.2);
 }
 
-/***************************************************
-  Mega menu dark
-****************************************************/
-
-.header-dark .navik-menu .mega-menu-container ul li a {
-	background-color: inherit;
-}
-
-.header-dark .navik-menu .mega-menu-heading a {
-	color: #fff;
-}
 /*
 .header-dark .navik-menu .mega-menu-heading a:hover {
   color: #26c6da;

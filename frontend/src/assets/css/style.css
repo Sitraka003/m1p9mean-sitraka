@@ -655,63 +655,6 @@ body {
 	background-color: #f7be27;
 }
 
-/*------------------------------------------*/
-/*  Background Images for Sections
-/*------------------------------------------*/
-
-.bg-01,
-.bg-02,
-.bg-03,
-.bg-04,
-.bg-05,
-.bg-06 {
-	width: 100%;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	background-attachment: scroll !important;
-}
-
-.bg-01 {
-	background-image: url(../images/bg-01.jpg);
-	background-attachment: fixed !important;
-}
-.bg-02 {
-	background-image: url(../images/bg-02.jpg);
-	background-attachment: fixed !important;
-}
-.bg-03 {
-	background-image: url(../images/bg-03.jpg);
-}
-.bg-04 {
-	background-image: url(../images/bg-04.jpg);
-}
-.bg-05 {
-	background-image: url(../images/bg-05.jpg);
-	background-attachment: fixed !important;
-}
-.bg-06 {
-	background-image: url(../images/bg-06.jpg);
-	background-attachment: fixed !important;
-}
-
-/*------------------------------------------*/
-/*. BORDER SETTINGS FOR DEMOS
-/*------------------------------------------*/
-
-.b-top {
-	border-top: 1px solid #eee;
-}
-.b-bottom {
-	border-bottom: 1px solid #eee;
-}
-.b-left {
-	border-left: 1px solid #eee;
-}
-.b-right {
-	border-right: 1px solid #eee;
-}
-
 /* ==========================================================================
   02. TYPOGRAPHY
   =========================================================================== */
@@ -2417,14 +2360,6 @@ span.item-code {
   04. HEADER & NAVIGATION
   =========================================================================== */
 
-#header-1.navik-header {
-	padding-top: 40px;
-}
-
-#header-3.navik-header {
-	padding-top: 20px;
-}
-
 /*------------------------------------------*/
 /*  MAIN MENU LINK
 /*------------------------------------------*/
@@ -2440,12 +2375,6 @@ span.item-code {
 	-o-transition: all 150ms ease-in-out;
 	-ms-transition: all 150ms ease-in-out;
 	transition: all 150ms ease-in-out;
-}
-
-#header-3 .navik-menu ul li > a {
-	font-size: 18px;
-	padding-left: 16px;
-	padding-right: 16px;
 }
 
 .navbar-dark .navik-menu ul li > a {
@@ -2485,32 +2414,6 @@ span.item-code {
 }
 
 /*------------------------------------------*/
-/*  HEADER BUTTON
-/*------------------------------------------*/
-
-#header-3 .navik-menu ul li.nav-btn a {
-	position: relative;
-	top: 1.5px;
-	font-size: 24px;
-	font-weight: 700;
-	letter-spacing: -0.5px;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-#header-3 .navik-menu ul li.nav-btn.yellow-color > a {
-	color: #f7be27;
-}
-
-#header-3 .navik-menu ul li.nav-btn.red-color > a {
-	color: #e3000e;
-}
-
-#header-3 .navik-menu ul li.nav-btn.salmon-color > a {
-	color: #e84e1d;
-}
-
-/*------------------------------------------*/
 /*  SHOPPING BASKET
 /*------------------------------------------*/
 
@@ -2536,24 +2439,6 @@ span.ico-holder {
 }
 
 /*------------------------------------------*/
-/*  HEADER CALL BUTTON
-/*------------------------------------------*/
-
-.callusbtn {
-	display: none;
-	position: absolute;
-	top: 33px;
-	left: 14px;
-}
-
-.callusbtn a {
-	font-size: 22px;
-	line-height: 1;
-	padding: 0;
-	margin: 0;
-}
-
-/*------------------------------------------*/
 /*  HEADER SUBMENU
 /*------------------------------------------*/
 
@@ -2570,19 +2455,6 @@ span.ico-holder {
 	font-style: normal;
 	text-transform: inherit;
 	padding: 14px 8px;
-}
-
-#header-3 .navik-menu ul ul li > a {
-	font-size: 15px;
-}
-
-/*------------------------------------------*/
-/*  NAVBAR STICKY
-/*------------------------------------------*/
-
-#header-1.navik-header.sticky,
-#header-3.navik-header.sticky {
-	padding-top: 0;
 }
 
 /* ==========================================================================
@@ -2609,388 +2481,25 @@ span.ico-holder {
 	height: 155px;
 }
 
-#hero-4 {
-	position: relative;
-	background-image: url(../images/hero-4.jpg);
-	padding-top: 170px;
-	padding-bottom: 90px;
-}
-
-#hero-5 .bg-inner {
-	position: relative;
-	background-image: url(../images/hero-5.jpg);
-	padding-top: 150px;
-	margin-bottom: 60px;
-}
-
-#hero-9 .bg-inner {
-	position: relative;
-	background-image: url(../images/hero-9.jpg);
-	padding-top: 210px;
-	padding-bottom: 140px;
-}
-
-#hero-10 {
-	position: relative;
-	background-image: url(../images/hero-10.jpg);
-	padding-top: 140px;
-	padding-bottom: 70px;
-}
-
-#hero-11 {
-	position: relative;
-	background-image: url(../images/hero-11.jpg);
-	padding-top: 180px;
-	padding-bottom: 80px;
-}
-
-#hero-12 {
-	position: relative;
-	padding-top: 200px;
-	padding-bottom: 80px;
-}
-
-/*------------------------------------------*/
-/*  HERO SLIDER
-/*------------------------------------------*/
-
-.slider {
-	position: relative;
-	max-width: 100%;
-	height: 660px;
-}
-
-#hero-3 .slider {
-	height: 700px;
-}
-
-#hero-8 .slider {
-	height: 560px;
-}
-
-.slider.mt-100 {
-	height: 550px;
-	margin-top: 95px;
-}
-
-.slider .slides {
-	margin: 0;
-	height: 660px;
-}
-
-#hero-3 .slider .slides {
-	height: 700px;
-}
-
-#hero-8 .slider .slides {
-	height: 560px;
-}
-
-.slider.mt-100 .slides {
-	margin: 0;
-	height: 550px;
-}
-
-.slider .slides li {
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	width: 100%;
-	height: inherit;
-	overflow: hidden;
-}
-
-.slider .slides li img {
-	height: 100%;
-	width: 100%;
-	background-size: cover;
-	background-position: center;
-}
-
-.slider .slides li .caption {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-}
-
-.slider .slides li.active {
-	z-index: 2;
-}
-
-/*------------------------------------------*/
-/*  Slider Animation
-/*------------------------------------------*/
-
-.center-align {
-	text-align: center;
-}
-
-/*------------------------------------------*/
-/*  Slider Indicators
-/*------------------------------------------*/
-
-.slider .indicators {
-	position: absolute;
-	text-align: center;
-	left: 0;
-	right: 0;
-	bottom: 30px;
-	margin: 0;
-	z-index: 98;
-}
-
-.slider .indicators .indicator-item {
-	display: inline-block;
-	position: relative;
-	cursor: pointer;
-	background-color: transparent;
-	height: 10px;
-	width: 10px;
-	border: 2px solid #fff;
-	margin: 0 7px;
-	opacity: 0.5;
-	-webkit-transition: background-color 0.3s;
-	transition: background-color 0.3s;
-	border-radius: 50%;
-}
-
-.slider .indicators .indicator-item.active {
-	background-color: #fff;
-	opacity: 0.65;
-}
-
 /*------------------------------------------*/
 /*  HERO TEXT
 /*------------------------------------------*/
 
-#hero-1 .caption-txt {
-	padding: 0 6%;
-	margin-top: 70px;
-}
 
 #hero-2 .hero-txt {
 	padding: 0 5%;
-}
-
-#hero-3 .caption-txt {
-	padding-left: 10px;
-	margin-top: 50px;
-}
-
-#hero-6 .caption-txt {
-	margin-top: 50px;
-}
-
-.hero-11-txt {
-	margin-left: -20px;
-	padding-right: 20px;
 }
 
 /*------------------------------------------*/
 /*  Hero Headers
 /*------------------------------------------*/
 
-#hero-1 h2,
-#hero-2 h2,
-#hero-3 h2,
-.hero-4-txt h2,
-#hero-6 h2,
-#hero-9 h2 {
+#hero-2 h2 {
 	font-family: "Lilita One", cursive;
 	font-size: 7.25rem;
 	line-height: 1.1;
 	letter-spacing: 3px;
-	margin-bottom: 30px;
-}
-
-#hero-2 h2 {
 	margin-bottom: 40px;
-}
-
-#hero-3 h2,
-#hero-6 h2 {
-	font-size: 6.5rem;
-	margin-bottom: 20px;
-}
-
-#hero-3 h3,
-#hero-6 h3 {
-	font-size: 3.5rem;
-	line-height: 1;
-	font-weight: 300;
-	letter-spacing: 0;
-	margin-bottom: 0;
-}
-
-#hero-3 h3 span,
-#hero-6 h3 span {
-	font-size: 4.25rem;
-	font-weight: 400;
-	letter-spacing: -1px;
-	position: relative;
-	top: 3px;
-	left: 5px;
-}
-
-.hero-4-txt h2 {
-	font-size: 7rem;
-	line-height: 1;
-	margin-bottom: 15px;
-}
-
-.hero-4-txt h3 {
-	font-family: "Lilita One", cursive;
-	font-size: 2.5rem;
-	line-height: 1;
-	letter-spacing: 3px;
-	margin-bottom: 20px;
-}
-
-#hero-5 h2 {
-	font-family: "Lilita One", cursive;
-	font-size: 17rem;
-	line-height: 1;
-	letter-spacing: 0;
-	position: relative;
-	opacity: 0.25;
-	z-index: 8;
-	margin-bottom: 0;
-}
-
-#hero-9 h2 {
-	font-size: 7rem;
-	opacity: 0.95;
-	padding: 0 5%;
-	margin-bottom: 25px;
-}
-
-#hero-10 h2 {
-	display: inline-block;
-	font-family: "Lilita One", cursive;
-	font-size: 18rem;
-	line-height: 1;
-	letter-spacing: 3px;
-	opacity: 0.85;
-	border-bottom: 10px solid #fff;
-	padding-bottom: 25px;
-	margin-bottom: 35px;
-}
-
-#hero-10 h3 {
-	font-size: 4.75rem;
-	line-height: 1;
-	font-weight: 300;
-	opacity: 0.85;
-	letter-spacing: 2px;
-	margin-bottom: 70px;
-}
-
-#hero-11 h2 {
-	font-size: 10.5rem;
-	line-height: 1;
-	letter-spacing: -1px;
-	margin-bottom: 20px;
-}
-
-#hero-11 h3 {
-	font-size: 5.5rem;
-	line-height: 1;
-	font-weight: 300;
-	letter-spacing: 1px;
-	margin-bottom: 5px;
-}
-
-#hero-11 h4 {
-	font-size: 3.5rem;
-	line-height: 1;
-	font-weight: 300;
-	letter-spacing: 1px;
-	margin-bottom: 25px;
-}
-
-#hero-12 h3 {
-	font-size: 4.25rem;
-	line-height: 1;
-	font-weight: 300;
-	letter-spacing: 1px;
-	margin-bottom: 25px;
-}
-
-#hero-12 h2 {
-	font-family: "Lilita One", cursive;
-	font-size: 8.5rem;
-	line-height: 1;
-	letter-spacing: 3px;
-	margin-bottom: 30px;
-}
-
-/*------------------------------------------*/
-/*  Hero Paragraph
-/*------------------------------------------*/
-
-#hero-1 p {
-	font-size: 1.75rem;
-	font-weight: 400;
-	margin-bottom: 0;
-}
-
-#hero-1 p span {
-	font-family: "Oswald", sans-serif;
-	font-size: 2.35rem;
-	line-height: 1;
-	font-weight: 700;
-	letter-spacing: -0.5px;
-	position: relative;
-	top: 3px;
-	left: 10px;
-}
-
-.hero-4-txt p {
-	padding: 0 5%;
-	margin-bottom: 20px;
-}
-
-.hero-9-txt p {
-	font-size: 1.35rem;
-	padding: 0 15%;
-	margin-bottom: 40px;
-}
-
-.hero-11-txt p {
-	padding-right: 5%;
-	margin-bottom: 30px;
-}
-
-.hero-12-txt p {
-	padding: 0 15%;
-	margin-bottom: 65px;
-}
-
-/*------------------------------------------*/
-/*  HERO BOX
-/*------------------------------------------*/
-
-.hbox-1-wrapper,
-.hbox-2-wrapper {
-	padding: 0 8%;
-}
-
-.hbox-1 h5,
-.hbox-2 h5 {
-	line-height: 1;
-	margin-top: 25px;
-	letter-spacing: 0;
-	margin-bottom: 0;
-}
-
-.hbox-2 h5,
-.hbox-2-ico {
-	opacity: 0.8;
 }
 
 /*------------------------------------------*/
@@ -3000,34 +2509,6 @@ span.ico-holder {
 .hero-2-img {
 	position: relative;
 	margin-bottom: -50px;
-}
-
-.hero-4-img {
-	position: relative;
-}
-
-.hero-5-img {
-	margin-top: -90px;
-	margin-bottom: -40px;
-	position: relative;
-	z-index: 9;
-}
-
-.hero-9-img {
-	margin-top: -30px;
-	margin-bottom: -60px;
-	position: relative;
-	z-index: 9;
-}
-
-.hero-11-img {
-	margin-left: -50%;
-}
-
-.hero-11-img img {
-	position: relative;
-	max-width: none;
-	display: inline-block;
 }
 
 /* ==========================================================================
