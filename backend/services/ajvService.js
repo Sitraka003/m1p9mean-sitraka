@@ -1,5 +1,6 @@
 const Ajv = require("ajv");
 const addFormats = require("ajv-formats");
+const { INCORECT_VALUE } = require("./const");
 
 function processError(data, code, bool = false) {
 	let details = [];
@@ -49,7 +50,7 @@ module.exports = {
 			return processError(incorrect, "FIELD_INCORRECT");
 		}
 		if (format.length !== 0) {
-			return processError(format, "INCORECT_VALUE");
+			return processError(format, INCORECT_VALUE);
 		}
 	},
 	checkWithAjv(schema, object) {

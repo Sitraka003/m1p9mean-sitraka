@@ -7,7 +7,8 @@ import {
 } from "@angular/forms";
 import { ContactService } from "../../services/contact.service";
 import { ContactFormModel } from "../../models/contact-form.model";
-import { NavigationEnd, Router } from "@angular/router";
+import { Router } from "@angular/router";
+import { Utilities } from "../../config/utilities";
 
 @Component({
 	selector: "app-contact",
@@ -35,12 +36,7 @@ export class ContactComponent implements OnInit {
 
 	ngOnInit(): void {
 		// Reset to top
-		this.router.events.subscribe((evt) => {
-			if (!(evt instanceof NavigationEnd)) {
-				return;
-			}
-			window.scrollTo(0, 0);
-		});
+		Utilities.scrollToTop(this.router);
 
 		// Form Builder
 		this.contactForm = this.formBuilder.group({

@@ -1,12 +1,23 @@
-var mongoose = require("mongoose"),
+const mongoose = require("mongoose"),
 	Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
+const { ROLES } = require("../services/const");
 
-var postSchema = new Schema({
-	thread: ObjectId,
-	date: { type: Date, default: Date.now },
-	author: { type: String, default: "Anon" },
-	post: String,
+const userSchema = new Schema({
+	name: { type: String, required: true },
+	firstname: { type: String, required: false },
+	address: { type: String, required: false },
+	email: { type: String, required: true, unique: true },
+	hashed_password: { type: String, required: true },
+	authToken: { type: String, required: false },
+	contacts: { type: Array, required: false },
+	role: [
+		{
+			type: String,
+			enum: ROLES,
+		},
+	],
+	restaurant: { type: ObjectId, ref: "Restaurant" },
 });
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = userSchema;

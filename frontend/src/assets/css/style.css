@@ -5465,7 +5465,8 @@ select:-webkit-autofill:focus {
 }
 
 #not-found-page,
-#contacts-page {
+#contacts-page,
+#register-page {
 	background-image: url(../images/home/hero-bg-min.jpg);
 }
 

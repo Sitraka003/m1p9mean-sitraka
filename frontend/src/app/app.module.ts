@@ -11,6 +11,7 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgHttpLoaderModule } from "ng-http-loader";
+import { RegisterComponent } from "./pages/register/register.component";
 
 @NgModule({
 	declarations: [
@@ -20,6 +21,7 @@ import { NgHttpLoaderModule } from "ng-http-loader";
 		HomeComponent,
 		FooterComponent,
 		ContactComponent,
+		RegisterComponent,
 	],
 	imports: [
 		BrowserModule,

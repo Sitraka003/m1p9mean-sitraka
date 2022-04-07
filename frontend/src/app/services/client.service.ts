@@ -1,15 +1,14 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Constants } from "../config/constants";
-import { ContactFormModel } from "../models/contact-form.model";
+import { ClientModel } from "../models/client.model";
 import { Utilities } from "../config/utilities";
 
 @Injectable({
 	providedIn: "root",
 })
-export class ContactService {
-	apiUrl = Utilities.getHost() + "api/contact/";
+export class ClientService {
+	apiUrl = Utilities.getHost() + "api/client/";
 
 	httpOptions = {
 		headers: new HttpHeaders({
@@ -19,12 +18,10 @@ export class ContactService {
 
 	constructor(private httpClient: HttpClient) {}
 
-	public sendContactForm(
-		contactFormModel: ContactFormModel
-	): Observable<ContactFormModel> {
-		return this.httpClient.post<ContactFormModel>(
-			this.apiUrl + "sendEmail",
-			JSON.stringify(contactFormModel),
+	public registerClient(clientModel: ClientModel): Observable<ClientModel> {
+		return this.httpClient.post<ClientModel>(
+			this.apiUrl + "register",
+			JSON.stringify(clientModel),
 			this.httpOptions
 		);
 	}
