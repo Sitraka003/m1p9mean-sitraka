@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 		// do not fail on invalid certs
 		rejectUnauthorized: process.env.SMTP_REJECT || false,
 	},
-	secure: process.env.SMTP_SECURE || false,
+	secureConnection: process.env.SMTP_SECURE || false,
 });
 
 module.exports.send = (from, to, subject, text, html, file, cc) =>
