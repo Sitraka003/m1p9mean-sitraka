@@ -30,7 +30,8 @@
 
 					<!-- Text -->
 					<p class="p-xl">
-						Raha toa ka hamela hafatra na misy zavatra tiana ifampiresahana dia afaka mandefa izany ianao amin'ny alalan'ito taratasy fameno ito.
+						Raha toa ka hamela hafatra na misy zavatra tiana ifampiresahana dia afaka mandefa izany ianao
+						amin'ny alalan'ito taratasy fameno ito.
 					</p>
 
 				</div>
@@ -41,33 +42,49 @@
 		<!-- CONTACT FORM -->
 		<div class="row">
 			<div class="col-lg-10 offset-lg-1">
+				<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="hasError">
+					<strong>Oayyyy kosa!</strong> Tsy lasa ny hafatrao fa ialana tsiny. Mamerena mandefa afaka kelikely.
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 				<div class="form-holder">
-					<form name="contactform" class="row contact-form">
+					<form name="contactform" class="row contact-form" [formGroup]="contactForm">
 						<!-- Form Input -->
 						<div class="col-md-12 col-lg-6">
-							<input type="text" name="name" class="form-control name" placeholder="Anarana*">
+							<input type="text" name="name" class="form-control name" placeholder="Anarana*"
+								   formControlName="name"
+								   [class.is-invalid]="name?.invalid && (name?.dirty || name?.touched)">
 						</div>
 
 						<!-- Form Input -->
 						<div class="col-md-12 col-lg-6">
-							<input type="email" name="email" class="form-control email" placeholder="Adiresy Imailaky*">
+							<input type="email" name="email" class="form-control email" placeholder="Adiresy Imailaky*"
+								   formControlName="email"
+								   [class.is-invalid]="email?.invalid && (email?.dirty || email?.touched)">
 						</div>
 
 						<!-- Form Input -->
 						<div class="col-md-12">
 							<input type="text" name="subject" class="form-control subject"
-								   placeholder="Lohateny">
+								   placeholder="Lohateny" formControlName="title"
+								   [class.is-invalid]="title?.invalid && (title?.dirty || title?.touched)">
 						</div>
 
 						<!-- Form Textarea -->
 						<div class="col-md-12">
 							<textarea name="message" class="form-control message" rows="6"
-									  placeholder="Ny hafatrao ..."></textarea>
+									  placeholder="Ny hafatrao ..."
+									  formControlName="message"
+									  [class.is-invalid]="message?.invalid && (message?.dirty || message?.touched)">
+							</textarea>
 						</div>
 
 						<!-- Form Button -->
 						<div class="col-md-12 mt-5 text-right">
-							<button type="submit" class="btn btn-md btn-red tra-red-hover submit">Alefaso ny hafatra</button>
+							<button type="submit" class="btn btn-md btn-red submit"
+									(click)="sendContactForm()" [disabled]="!contactForm.valid">Alefaso ny hafatra
+							</button>
 						</div>
 
 						<!-- Form Message -->
