@@ -23,8 +23,28 @@
 						"polyfills": "src/polyfills.ts",
 						"tsConfig": "tsconfig.app.json",
 						"assets": ["src/favicon.ico", "src/assets"],
-						"styles": ["src/styles.css"],
-						"scripts": []
+						"styles": [
+							"node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"src/assets/css/menu.css",
+							"src/assets/css/flaticon.css",
+							"node_modules/@fortawesome/fontawesome-free/css/all.css",
+							"node_modules/magnific-popup/dist/magnific-popup.css",
+							"node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+							"node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+							"src/assets/css/style.css",
+							"src/assets/css/responsive.css"
+						],
+						"scripts": [
+							"node_modules/jquery/dist/jquery.min.js",
+							"node_modules/bootstrap/dist/js/bootstrap.min.js",
+							"src/assets/js/modernizr.custom.min.js",
+							"node_modules/jquery.easing/jquery.easing.min.js",
+							"node_modules/jquery.scrollto/jquery.scrollTo.min.js",
+							"src/assets/js/menu.js",
+							"node_modules/owl.carousel/dist/owl.carousel.min.js",
+							"node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
+							"src/assets/js/custom.js"
+						]
 					},
 					"configurations": {
 						"production": {
