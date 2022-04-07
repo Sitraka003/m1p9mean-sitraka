@@ -8,7 +8,7 @@ import { ContactFormModel } from "../models/contact-form.model";
 	providedIn: "root",
 })
 export class ContactService {
-	apiUrl = Constants.API_ENDPOINT_DEV + "api/contact/";
+	apiUrl = Constants.API_ENDPOINT_PROD + "api/contact/";
 
 	httpOptions = {
 		headers: new HttpHeaders({
