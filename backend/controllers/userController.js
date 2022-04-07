@@ -5,7 +5,11 @@ const ajvUserService = require("../services/ajv/ajvUser");
 const ajvService = require("../services/ajvService");
 const only = require("only");
 const { sendResponse } = require("../services/utility");
-const { CLIENT_REGISTER, ERROR_500 } = require("../services/const");
+const {
+	CLIENT_REGISTER,
+	ERROR_500,
+	INCORECT_VALUE,
+} = require("../services/const");
 const md5 = require("md5");
 
 module.exports = {
@@ -20,6 +24,13 @@ module.exports = {
 
 		// Insert into User
 		const body = only(req.body, CLIENT_REGISTER);
+		if (req.body.password !== req.body.confirmPassword)
+			return sendResponse(
+				res,
+				400,
+				INCORECT_VALUE,
+				"Password and confirmPassword didn't maatch"
+			);
 		// Hash password
 		body.hashed_password = md5(req.body.password);
 

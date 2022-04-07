@@ -1,0 +1,138 @@
+<!-- PAGE HERO
+			============================================= -->
+<div id="register-page" class="page-hero-section division">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="hero-txt text-center white-color">
+
+					<!-- Title -->
+					<h2 class="h2-xl">Hisoratra anarana</h2>
+				</div>
+			</div>
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</div>    <!-- END PAGE HERO -->
+
+
+<!-- CONTACTS-5
+============================================= -->
+<section id="contacts-5" class="contacts-section division">
+	<div class="container">
+		<!-- SECTION TITLE -->
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="section-title mb-40 text-center">
+
+					<!-- Text -->
+					<p class="p-xl">
+						Raha hisitraka sy hividy ireo sakafo rehetra ato amin'ny E-kaly ianao dia mila misoratra
+						anarana.
+					</p>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!-- CONTACT FORM -->
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="hasError">
+					<strong>Oayyyy kosa!</strong> Tsy nety ny fisoratanao anarana. Mamerena mandefa afaka kelikely.
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="form-holder">
+					<form name="contactform" class="row contact-form" [formGroup]="registerForm">
+						<!-- Form Input -->
+						<div class="col-md-12 col-lg-6">
+							<input type="text" name="name" class="form-control name" placeholder="Anarana*"
+								   formControlName="name" required
+								   [class.is-invalid]="name?.invalid && (name?.dirty || name?.touched)">
+						</div>
+
+						<div class="col-md-12 col-lg-6">
+							<input type="text" name="firstname" class="form-control firstname" placeholder="Fanampiny"
+								   formControlName="firstname"
+								   [class.is-invalid]="firstname?.invalid && (firstname?.dirty || firstname?.touched)">
+						</div>
+
+						<!-- Form Input -->
+						<div class="col-md-12">
+							<input type="email" name="email" class="form-control email" placeholder="Adiresy Imailaky*"
+								   formControlName="email"
+								   [class.is-invalid]="email?.invalid && (email?.dirty || email?.touched)">
+						</div>
+
+						<!-- Form Input -->
+						<div class="col-md-12 col-lg-6">
+							<div class="input-group">
+								<input type="password" name="password" class="form-control password"
+									   placeholder="Teny mihafina*"
+									   formControlName="password" [pattern]="passwordPattern"
+									   [class.is-invalid]="password?.invalid && (password?.dirty || password?.touched)">
+								<div
+									class="input-group-addon btn yellow-hover text-black-50 d-flex justify-content-center align-items-center px-2"
+									style="height: 54px" (click)="showHidePassword($event)">
+									<a><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Form Input -->
+						<div class="col-md-12 col-lg-6">
+							<div class="input-group">
+								<input type="password" name="confirmPassword" class="form-control confirmPassword"
+									   placeholder="Fanamarinana teny mihafina*"
+									   formControlName="confirmPassword" [pattern]="passwordPattern"
+									   [class.is-invalid]="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
+								<div
+									class="input-group-addon btn yellow-hover text-black-50 d-flex justify-content-center align-items-center px-2"
+									style="height: 54px" (click)="showHidePassword($event)">
+									<a><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+								</div>
+							</div>
+
+						</div>
+
+						<!-- Form Input -->
+						<div class="col-md-12">
+							<input type="text" name="address" class="form-control address"
+								   placeholder="Fonenana" formControlName="address"
+								   [class.is-invalid]="address?.invalid && (address?.dirty || address?.touched)">
+						</div>
+
+						<!-- Form Input -->
+						<div class="col-md-12">
+							<input type="text" name="contact" class="form-control contact"
+								   placeholder="Finday" formControlName="contact" [pattern]="phonePattern"
+								   [class.is-invalid]="contact?.invalid && (contact?.dirty || contact?.touched)">
+						</div>
+
+						<!-- Form Button -->
+						<div class="col-md-12 mt-5 text-right">
+							<button type="submit" class="btn btn-md btn-red submit"
+									(click)="validateRegister()" [disabled]="!registerForm.valid">Hisoratra anarana
+							</button>
+						</div>
+
+						<!-- Form Message -->
+						<div class="col-md-12 contact-form-msg text-center">
+							<div class="sending-msg"><span class="loading"></span></div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>  <!-- END CONTACT FORM -->
+
+
+	</div>       <!-- End container -->
+</section>    <!-- END CONTACTS-5 -->
+
+
+
+

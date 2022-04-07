@@ -8,7 +8,7 @@ module.exports = {
 	getSchemaCreateUser() {
 		return {
 			type: "object",
-			required: ["name", "email", "password"],
+			required: ["name", "email", "password", "confirmPassword"],
 			properties: {
 				name: {
 					type: ["string"],
@@ -30,6 +30,11 @@ module.exports = {
 					pattern: regexEmail,
 				},
 				password: {
+					type: ["string"],
+					minLength: 8,
+					pattern: goodPassword,
+				},
+				confirmPassword: {
 					type: ["string"],
 					minLength: 8,
 					pattern: goodPassword,

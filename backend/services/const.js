@@ -10,3 +10,4 @@ module.exports.ERROR_500 = {
 	message: "Something went wrong",
 	data: {},
 };
+module.exports.INCORECT_VALUE = "INCORECT_VALUE";
