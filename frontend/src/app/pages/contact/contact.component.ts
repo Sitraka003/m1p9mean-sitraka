@@ -7,7 +7,7 @@ import {
 } from "@angular/forms";
 import { ContactService } from "../../services/contact.service";
 import { ContactFormModel } from "../../models/contact-form.model";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
 	selector: "app-contact",
@@ -15,12 +15,14 @@ import { Router } from "@angular/router";
 	styleUrls: ["./contact.component.css"],
 })
 export class ContactComponent implements OnInit {
+	// Form group
 	contactForm = new FormGroup({
 		name: new FormControl(""),
 		title: new FormControl(""),
 		message: new FormControl(""),
 		email: new FormControl(""),
 	});
+	// Make the error message appear in view
 	hasError = false;
 
 	contact = {} as ContactFormModel;
@@ -32,6 +34,15 @@ export class ContactComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		// Reset to top
+		this.router.events.subscribe((evt) => {
+			if (!(evt instanceof NavigationEnd)) {
+				return;
+			}
+			window.scrollTo(0, 0);
+		});
+
+		// Form Builder
 		this.contactForm = this.formBuilder.group({
 			name: ["", [Validators.required]],
 			title: ["", [Validators.required]],

@@ -38,6 +38,7 @@ module.exports = {
 				});
 			})
 			.catch((error) => {
+				console.log(error);
 				return res.status(500).json({
 					code: "SEND_EMAIL_FAILED",
 					message: "Sending email failed",
