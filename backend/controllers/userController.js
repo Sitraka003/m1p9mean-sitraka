@@ -136,24 +136,13 @@ module.exports = {
 
 	async findAllUser(req, res) {
 		try {
-			const user = await UserModel.find({}, USER_FIND).exec();
-			console.log(user);
-			// If user not found
-			if (!user) {
-				return sendResponse(
-					res,
-					404,
-					"NOT_FOUND",
-					"The user was not found"
-				);
-			}
-			console.log(user);
+			const users = await UserModel.find({}, USER_FIND).exec();
 			return sendResponse(
 				res,
 				200,
 				"OK",
 				"Success",
-				only(user, USER_FIND)
+				users.map(user => only(user, USER_FIND))
 			);
 		} catch (e) {
 			return sendResponse(res, 500, ERROR_500);
