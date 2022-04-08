@@ -15,6 +15,10 @@ module.exports.RESTO_CREATE = "name description address contacts tags";
 module.exports.RESTO_FIND = "_id name description address contacts tags";
 module.exports.RESTO_UPDATE = "description address contacts tags";
 
+module.exports.DISH_CREATE = "name description price tags restaurant";
+module.exports.DISH_FIND = "_id name description price etat tags restaurant";
+module.exports.DISH_UPDATE = "name description price etat tags";
+
 // Message response
 module.exports.ERROR_500 = {
 	code: "INTERNAL_ERROR",
