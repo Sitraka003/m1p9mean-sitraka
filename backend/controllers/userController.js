@@ -9,21 +9,34 @@ const {
 	CLIENT_REGISTER,
 	ERROR_500,
 	INCORECT_VALUE,
+	USER_CREATE,
+	USER_UPDATE,
+	USER_FIND,
 } = require("../services/const");
 const md5 = require("md5");
 
 module.exports = {
-	async registerClient(req, res) {
+	async createUser(req, res) {
+		const baseUrlPath = req.baseUrl + req.path;
+		let _ajv, _body;
+		if (baseUrlPath.includes("api/client/register")) {
+			_ajv = ajvUserService.getSchemaRegister();
+			_body = only(req.body, CLIENT_REGISTER);
+		} else {
+			_ajv = ajvUserService.getSchemaCreateUser();
+			_body = only(req.body, USER_CREATE);
+		}
+		const ajv = _ajv;
+		const body = _body;
+
 		// Validate the input from user
 		try {
-			const ajvContact = ajvUserService.getSchemaCreateUser();
-			ajvService.checkWithAjv(ajvContact, req.body);
+			ajvService.checkWithAjv(ajv, req.body);
 		} catch (e) {
 			return sendResponse(res, 400, e);
 		}
 
-		// Insert into User
-		const body = only(req.body, CLIENT_REGISTER);
+		// Verify password if match
 		if (req.body.password !== req.body.confirmPassword)
 			return sendResponse(
 				res,
@@ -52,6 +65,97 @@ module.exports = {
 					{ email: e.keyValue.email }
 				);
 			}
+			return sendResponse(res, 500, ERROR_500);
+		}
+	},
+
+	async updateUser(req, res) {
+		const _id = req.params._id;
+		const ajv = ajvUserService.getSchemaUpdateUser();
+		const body = only(req.body, USER_UPDATE);
+
+		// Validate the input from user
+		try {
+			ajvService.checkWithAjv(ajv, body);
+		} catch (e) {
+			return sendResponse(res, 400, e);
+		}
+
+		try {
+			const user = await UserModel.findOneAndUpdate({ _id: _id }, body, {
+				returnDocument: "after",
+			}).exec();
+			console.log(user);
+			// If user not found
+			if (!user) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The user was not found"
+				);
+			}
+			return sendResponse(
+				res,
+				200,
+				"OK",
+				"Success",
+				only(user, USER_FIND)
+			);
+		} catch (e) {
+			console.log(e);
+			return sendResponse(res, 500, ERROR_500);
+		}
+	},
+
+	async findOneUser(req, res) {
+		const _id = req.params._id;
+		try {
+			const user = await UserModel.findById(_id, USER_FIND).exec();
+			// If user not found
+			if (!user) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The user was not found"
+				);
+			}
+			console.log(user);
+			return sendResponse(
+				res,
+				200,
+				"OK",
+				"Success",
+				only(user, USER_FIND)
+			);
+		} catch (e) {
+			return sendResponse(res, 500, ERROR_500);
+		}
+	},
+
+	async findAllUser(req, res) {
+		try {
+			const user = await UserModel.find({}, USER_FIND).exec();
+			console.log(user);
+			// If user not found
+			if (!user) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The user was not found"
+				);
+			}
+			console.log(user);
+			return sendResponse(
+				res,
+				200,
+				"OK",
+				"Success",
+				only(user, USER_FIND)
+			);
+		} catch (e) {
 			return sendResponse(res, 500, ERROR_500);
 		}
 	},
