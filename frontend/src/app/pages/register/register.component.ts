@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 		password: new FormControl(""),
 		confirmPassword: new FormControl(""),
 		address: new FormControl(""),
-		contact: new FormControl(""),
+		contacts: new FormControl(""),
 	});
 	// Make the error message appear in view
 	hasError = false;
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
 			confirmPassword: ["", [Validators.required]],
 			email: ["", [Validators.required, Validators.email]],
 			address: ["", [Validators.required]],
-			contact: ["", []],
+			contacts: ["", []],
 		});
 	}
 
@@ -118,7 +118,7 @@ export class RegisterComponent implements OnInit {
 		return this.registerForm.get("address");
 	}
 
-	get contact() {
-		return this.registerForm.get("contact");
+	get contacts() {
+		return this.registerForm.get("contacts");
 	}
 }

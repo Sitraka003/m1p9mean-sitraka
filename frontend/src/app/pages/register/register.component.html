@@ -45,7 +45,7 @@
 					</button>
 				</div>
 				<div class="form-holder">
-					<form name="contactform" class="row contact-form" [formGroup]="registerForm">
+					<form name="registerForm" class="row contact-form" [formGroup]="registerForm">
 						<!-- Form Input -->
 						<div class="col-md-12 col-lg-6">
 							<input type="text" name="name" class="form-control name" placeholder="Anarana*"
@@ -106,9 +106,9 @@
 
 						<!-- Form Input -->
 						<div class="col-md-12">
-							<input type="text" name="contact" class="form-control contact"
-								   placeholder="Finday" formControlName="contact" [pattern]="phonePattern"
-								   [class.is-invalid]="contact?.invalid && (contact?.dirty || contact?.touched)">
+							<input type="text" name="contacts" class="form-control contacts"
+								   placeholder="Finday" formControlName="contacts" [pattern]="phonePattern"
+								   [class.is-invalid]="contacts?.invalid && (contacts?.dirty || contacts?.touched)">
 						</div>
 
 						<!-- Form Button -->
@@ -117,12 +117,6 @@
 									(click)="validateRegister()" [disabled]="!registerForm.valid">Hisoratra anarana
 							</button>
 						</div>
-
-						<!-- Form Message -->
-						<div class="col-md-12 contact-form-msg text-center">
-							<div class="sending-msg"><span class="loading"></span></div>
-						</div>
-
 					</form>
 
 				</div>
