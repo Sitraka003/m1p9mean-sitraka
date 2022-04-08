@@ -5,7 +5,7 @@ export class ClientModel {
 	password: string;
 	confirmPassword: string;
 	address: string;
-	contact: string | string[] | undefined;
+	contacts: string | string[] | undefined;
 
 	constructor({
 		name,
@@ -14,7 +14,7 @@ export class ClientModel {
 		password,
 		confirmPassword,
 		address,
-		contact,
+		contacts,
 	}: {
 		name: string;
 		firstname?: string;
@@ -22,7 +22,7 @@ export class ClientModel {
 		password: string;
 		confirmPassword: string;
 		address: string;
-		contact?: string;
+		contacts?: string;
 	}) {
 		this.name = name;
 		this.email = email;
@@ -30,6 +30,6 @@ export class ClientModel {
 		this.confirmPassword = confirmPassword;
 		this.firstname = firstname;
 		this.address = address;
-		this.contact = contact;
+		this.contacts = contacts;
 	}
 }
