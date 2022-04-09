@@ -31,7 +31,7 @@ module.exports = {
 						maxLength: 80,
 					},
 				},
-				etat: {
+				status: {
 					type: Number,
 					min: 0,
 					max: 2,

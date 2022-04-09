@@ -1,17 +1,16 @@
 const mongoose = require("mongoose"),
-	Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId;
+  Schema = mongoose.Schema,
+  ObjectId = Schema.ObjectId;
 
 const orderSchema = new Schema({
-	dish: { type: Schema.ObjectId, ref: "Dish" },
-	user: { type: Schema.ObjectId, ref: "User" },
-	price: { type: Number, required: true },
-	tags: [String],
-	etat: {
-		type: Number,
-		enum: [0 /* Created */, 1 /* Available */, 2 /* Deleted */],
-	},
-	restaurant: { type: ObjectId, ref: "Restaurant" },
+  dish: { type: ObjectId, ref: "Dish" },
+  number: { type: Number, required: true },
+  basket: { type: ObjectId, ref: "Basket" },
+  status: {
+    type: Number,
+    enum: [0 /* Initiated */, 1 /* Validated */, 2 /* Ready for delivery */, 3 /* Delivered */],
+    default: 0
+  }
 });
 
 module.exports = orderSchema;

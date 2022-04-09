@@ -27,8 +27,6 @@ module.exports = {
 		} catch (e) {
 			return sendResponse(res, 400, e);
 		}
-		// Initialize etat
-		body.etat = 0;
 
 		// Check Restaurant
 		const resto = await RestoModel.findById(

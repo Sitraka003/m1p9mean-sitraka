@@ -7,7 +7,7 @@ const dishSchema = new Schema({
 	description: { type: String, required: true },
 	price: { type: Number, required: true },
 	tags: [String],
-	etat: {
+	status: {
 		type: Number,
 		enum: [0 /* Created */, 1 /* Available */, 2 /* Deleted */],
 		required: true,
