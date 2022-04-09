@@ -1,5 +1,10 @@
 const express = require("express");
-const { updateResto, createResto, findOneResto, findAllResto } = require("../controllers/restaurantController");
+const {
+	updateResto,
+	createResto,
+	findOneResto,
+	findAllResto,
+} = require("../controllers/restaurantController");
 const router = express.Router();
 
 router.get("/", findAllResto);

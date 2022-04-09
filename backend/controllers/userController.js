@@ -142,7 +142,7 @@ module.exports = {
 				200,
 				"OK",
 				"Success",
-				users.map(user => only(user, USER_FIND))
+				users.map((user) => only(user, USER_FIND))
 			);
 		} catch (e) {
 			return sendResponse(res, 500, ERROR_500);
