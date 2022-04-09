@@ -11,6 +11,7 @@ const dishSchema = new Schema({
 		type: Number,
 		enum: [0 /* Created */, 1 /* Available */, 2 /* Deleted */],
 		required: true,
+		default: 0
 	},
 	restaurant: { type: ObjectId, ref: "Restaurant" },
 });
