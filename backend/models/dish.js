@@ -9,11 +9,11 @@ const dishSchema = new Schema({
 	tags: [String],
 	status: {
 		type: Number,
-		enum: [0 /* Created */, 1 /* Available */, 2 /* Deleted */],
+		enum: [0 /* Created */, 1 /* Available */, 9 /* Deleted */],
 		required: true,
 		default: 0
 	},
-	restaurant: { type: ObjectId, ref: "Restaurant" },
+	restaurant: { type: ObjectId, ref: "Restaurant", required: true },
 });
 
 module.exports = dishSchema;

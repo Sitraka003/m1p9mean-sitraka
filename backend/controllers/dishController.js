@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const dishSchema = require("../models/dish");
-const DishModel = mongoose.model("Dish", dishSchema);
 const restoSchema = require("../models/restaurant");
 const RestoModel = mongoose.model("Restaurant", restoSchema);
+const dishSchema = require("../models/dish");
+const DishModel = mongoose.model("Dish", dishSchema);
 const ajvDishService = require("../services/ajv/ajvDish");
 const ajvService = require("../services/ajvService");
 const only = require("only");
@@ -46,7 +46,7 @@ module.exports = {
 			const dish = new DishModel(body);
 			await dish.save();
 
-			return sendResponse(res, 200, "OK", "Success", dish);
+			return sendResponse(res, 200, "OK", "Success", only(dish, DISH_FIND));
 		} catch (e) {
 			return sendResponse(res, 500, ERROR_500);
 		}
@@ -82,7 +82,7 @@ module.exports = {
 				200,
 				"OK",
 				"Success",
-				only(dish, DISH_CREATE)
+				only(dish, DISH_FIND)
 			);
 		} catch (e) {
 			console.log(e);
