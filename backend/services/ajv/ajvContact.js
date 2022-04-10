@@ -1,4 +1,4 @@
-const regexEmail = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+const { AJV_EMAIL } = require("../const");
 
 module.exports = {
 	getSchemaContact() {
@@ -24,7 +24,7 @@ module.exports = {
 				email: {
 					type: ["string"],
 					minLength: 1,
-					pattern: regexEmail,
+					pattern: AJV_EMAIL,
 				},
 			},
 		};

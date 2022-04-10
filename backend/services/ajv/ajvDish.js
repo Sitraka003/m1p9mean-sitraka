@@ -1,4 +1,4 @@
-const objectId = "^[a-f\\\\d]{24}$";
+const { AJV_OBJECTID } = require("../const");
 
 module.exports = {
 	getSchemaDish(required = true) {
@@ -32,14 +32,14 @@ module.exports = {
 					},
 				},
 				status: {
-					type: Number,
-					min: 0,
-					max: 2,
+					type: "number",
+					minimum: 0,
+					maximum: 2,
 				},
 				restaurant: {
 					type: ["string"],
 					minLength: 1,
-					pattern: objectId,
+					pattern: AJV_OBJECTID,
 				},
 			},
 		};

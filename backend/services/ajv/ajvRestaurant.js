@@ -1,6 +1,4 @@
-const regexNumTel = "^03[2-4,8]\\s*\\d{2}\\s*\\d{3}\\s*\\d{2}$";
-const regexNumTel2 = "^3[2-4,8]\\s*\\d{2}\\s*\\d{3}\\s*\\d{2}$";
-const regexNumTel3 = "^\\+?261\\s*3[2-4,8]\\s*\\d{2}\\s*\\d{3}\\s*\\d{2}$";
+const { AJV_NUMTEL1, AJV_NUMTEL2, AJV_NUMTEL3 } = require("../const");
 
 module.exports = {
 	getSchemaResto(required = true) {
@@ -27,16 +25,16 @@ module.exports = {
 				},
 				contacts: {
 					oneOf: [
-						{ type: ["string"], pattern: regexNumTel },
-						{ type: ["string"], pattern: regexNumTel2 },
-						{ type: ["string"], pattern: regexNumTel3 },
+						{ type: ["string"], pattern: AJV_NUMTEL1 },
+						{ type: ["string"], pattern: AJV_NUMTEL2 },
+						{ type: ["string"], pattern: AJV_NUMTEL3 },
 						{
 							type: "array",
 							items: {
 								oneOf: [
-									{ type: ["string"], pattern: regexNumTel },
-									{ type: ["string"], pattern: regexNumTel2 },
-									{ type: ["string"], pattern: regexNumTel3 },
+									{ type: ["string"], pattern: AJV_NUMTEL1 },
+									{ type: ["string"], pattern: AJV_NUMTEL2 },
+									{ type: ["string"], pattern: AJV_NUMTEL3 },
 								],
 							},
 						},
