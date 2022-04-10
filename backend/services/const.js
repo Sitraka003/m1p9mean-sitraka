@@ -19,6 +19,9 @@ module.exports.DISH_CREATE = "name description price tags restaurant";
 module.exports.DISH_FIND = "_id name description price status tags restaurant";
 module.exports.DISH_UPDATE = "name description price status tags";
 
+module.exports.ORDER_CREATE = "basket client address";
+module.exports.ORDER_CREATE_RETURNED = "_id orderId basket restaurant total client address status";
+
 // Message response
 module.exports.ERROR_500 = {
 	code: "INTERNAL_ERROR",
