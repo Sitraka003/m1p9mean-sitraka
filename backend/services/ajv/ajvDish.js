@@ -19,7 +19,7 @@ module.exports = {
 					maxLength: 160,
 				},
 				price: {
-					type: ["string"],
+					type: ["string", "number"],
 					minLength: 3,
 					maxLength: 8,
 				},
