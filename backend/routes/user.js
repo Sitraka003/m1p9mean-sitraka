@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.get("/", findAllUser);
 router.get("/:_id", findOneUser);
-router.post("/create", createUser);
-router.patch("/update/:_id", updateUser);
+router.post("/", createUser);
+router.put("/:_id", updateUser);
 module.exports = router;
