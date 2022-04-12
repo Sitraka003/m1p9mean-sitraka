@@ -16,7 +16,7 @@ module.exports = {
 				description: {
 					type: ["string"],
 					minLength: 1,
-					maxLength: 160,
+					maxLength: 1200,
 				},
 				address: {
 					type: ["string"],

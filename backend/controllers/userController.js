@@ -25,13 +25,15 @@ module.exports = {
 		} else {
 			_ajv = ajvUserService.getSchemaCreateUser();
 			_body = only(req.body, USER_CREATE);
+			_body.password = "123456";
+			_body.confirmPassword = "123456";
 		}
 		const ajv = _ajv;
 		const body = _body;
 
 		// Validate the input from user
 		try {
-			ajvService.checkWithAjv(ajv, req.body);
+			ajvService.checkWithAjv(ajv, body);
 		} catch (e) {
 			return sendResponse(res, 400, e);
 		}
@@ -45,11 +47,15 @@ module.exports = {
 				"Password and confirmPassword didn't maatch"
 			);
 		// Hash password
-		body.hashed_password = md5(req.body.password);
+		body.hashed_password = md5(body.password);
 
+		if (body.role && body.role !== "") {
+			body.role = [body.role]
+		}
 		await UserModel.init();
 		try {
 			const user = new UserModel(body);
+			console.log(user)
 			await user.save();
 
 			return sendResponse(res, 200, "OK", "Success");

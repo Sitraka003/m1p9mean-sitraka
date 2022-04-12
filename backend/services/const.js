@@ -6,7 +6,7 @@ module.exports.ROLES = [
 ];
 // for only function
 module.exports.CLIENT_REGISTER = "name firstname address email contacts";
-module.exports.USER_CREATE = "name firstname address email contacts";
+module.exports.USER_CREATE = "name firstname address email role contacts";
 module.exports.USER_UPDATE = "name firstname address contacts";
 module.exports.USER_FIND =
 	"_id name firstname address email contacts role restaurant";
