@@ -10,3 +10,8 @@ export class Constants {
 	public static readonly PHONE_PATTERN: string =
 		"^03[2-4,8]\\s*\\d{2}\\s*\\d{3}\\s*\\d{2}$";
 }
+export class ResponseData {
+	code!: string;
+	data!: any;
+	message!: string;
+}

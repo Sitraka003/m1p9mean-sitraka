@@ -1,0 +1,58 @@
+<div class="container pt-20">
+	<ol class="breadcrumb float-right">
+		<li class="breadcrumb-item"><a routerLink="/admin">Admin</a></li>
+		<li class="breadcrumb-item active text-warning">User</li>
+	</ol>
+	<div class="mt-30 pt-20">
+		<div class="header">
+			<h2 class="title">User Detail</h2>
+		</div>
+		<div class="content">
+			<div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+			<form *ngIf="user" #editForm="ngForm" (ngSubmit)="save()">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input [(ngModel)]="user.name" id="name" name="name" class="form-control" [required]="true">
+				</div>
+
+				<div class="form-group">
+					<label for="firstname">Firstname</label>
+					<input [(ngModel)]="user.firstname" id="firstname" name="firstname"
+						   class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input [(ngModel)]="user.email" id="email" name="email"
+						   class="form-control" [disabled]="isEdit">
+				</div>
+
+				<div class="form-group">
+					<label for="address">Address</label>
+					<input [(ngModel)]="user.address" id="address" name="address" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="contacts">Contacts</label>
+					<input [(ngModel)]="user.contacts" id="contacts" name="contacts" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="roleSelect">Role</label>
+					<select class="form-control" id="roleSelect" name="roleSelect" [(ngModel)]="user.role">
+						<option *ngFor="let role of rolesList" [value]="user.role">{{role}}</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="restaurant">Restaurant</label>
+					<input [(ngModel)]="user.restaurant" id="restaurant" name="restaurant" class="form-control" [disabled]="isEdit">
+				</div>
+
+				<button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
+				<button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>
+

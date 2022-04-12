@@ -1,0 +1,146 @@
+<!-- PAGE HERO
+			============================================= -->
+<div id="contacts-page" class="page-hero-section division">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="hero-txt text-center white-color">
+
+					<!-- Title -->
+					<h2 class="h2-xl">{{dish.name}}</h2>
+
+				</div>
+			</div>
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</div>    <!-- END PAGE HERO -->
+
+
+<section id="product-1" class="pt-100 single-product division">
+	<div class="container">
+		<div class="row">
+
+
+			<!-- PRODUCT IMAGE -->
+			<div class="col-lg-7">
+				<div class="product-preview">
+
+
+					<!-- TABS CONTENT -->
+					<div class="tabs-content">
+
+						<!-- TAB-1 CONTENT -->
+						<div id="tab-1-img" class="tab-content text-center displayed">
+							<img class="img-fluid" src="https://picsum.photos/600" alt="menu-image">
+						</div>
+
+						<!-- TAB-2 CONTENT -->
+						<div id="tab-2-img" class="tab-content text-center">
+							<img class="img-fluid" src="https://picsum.photos/300" alt="menu-image">
+						</div>
+
+						<!-- TAB-3 CONTENT -->
+						<div id="tab-3-img" class="tab-content text-center">
+							<img class="img-fluid" src="https://picsum.photos/300" alt="menu-image">
+						</div>
+
+					</div>    <!-- END TABS CONTENT -->
+
+
+					<!-- TABS NAVIGATION -->
+					<div class="tabs-nav">
+						<div class="row">
+							<div class="col-lg-12 text-center">
+								<ul class="tabs-2 clearfix">
+
+									<!-- TAB-1 LINK -->
+									<li class="tab-link displayed" data-tab="tab-1-img">
+										<img src="https://picsum.photos/300" alt="menu-image">
+									</li>
+
+									<!-- TAB-2 LINK -->
+									<li class="tab-link" data-tab="tab-2-img">
+										<img src="https://picsum.photos/300" alt="menu-image">
+									</li>
+
+									<!-- TAB-2 LINK -->
+									<li class="tab-link" data-tab="tab-3-img">
+										<img src="https://picsum.photos/300" alt="menu-image">
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div> <!-- END TABS NAVIGATION -->
+
+
+				</div>
+			</div>    <!-- END PRODUCT IMAGE -->
+
+
+			<!-- PRODUCT DISCRIPTION -->
+			<div class="col-lg-5">
+				<div class="product-description">
+
+					<!-- TITLE -->
+					<div class="project-title">
+
+						<!-- Title -->
+						<h2 class="h2-lg">{{dish.name}}</h2>
+
+						<!-- Rating -->
+						<div class="stars-rating">
+							<span>4.38</span>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+							<span>(3 Customer Reviews)</span>
+						</div>
+
+						<!-- Price -->
+						<div class="project-price">
+							<h4 class="h4-xl yellow-color">{{dish.price}} Ar</h4>
+						</div>
+
+					</div>
+
+					<!-- TEXT -->
+					<div class="product-txt">
+
+						<!-- Text -->
+						<p class="p-md grey-color">{{dish.description}}
+						</p>
+
+						<!-- Product Data -->
+						<div class="product-info">
+							<p>Portion Size: <span>390g</span></p>
+							<p>Calories: <span>680Kj</span></p>
+							<p>Allergies: <span>Lactose, Gluten, Mustard</span></p>
+							<p *ngIf="dish.tags.length > 0">Tags: {{dish.tags}}</p>
+						</div>
+
+						<input class="qty" type="number" min="1" max="20" value="1">
+
+						<!-- Add To Cart -->
+						<div class="add-to-cart-btn bg-yellow ico-20 text-center">
+							<a href="cart.html"><span class="flaticon-shopping-bag"></span> Add to Cart</a>
+						</div>
+
+						<!-- List -->
+						<ul class="txt-list">
+							<li class="list-item"><p class="p-sm">We accept credit cards or cash to a courier</p></li>
+							<li class="list-item"><p class="p-sm">Shipping cost is $2 (Free from $35)</p></li>
+							<li class="list-item"><p class="p-sm">Order before noon for same day dispatch</p></li>
+						</ul>
+
+					</div>    <!-- END TEXT-->
+
+				</div>
+			</div>    <!-- END PRODUCT DISCRIPTION -->
+
+
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</section>

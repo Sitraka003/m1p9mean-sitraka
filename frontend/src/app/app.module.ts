@@ -12,6 +12,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgHttpLoaderModule } from "ng-http-loader";
 import { RegisterComponent } from "./pages/register/register.component";
+import { AdminModule } from "./admin/admin.module";
+import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
+import { DishComponent } from './pages/dish/dish.component';
 
 @NgModule({
 	declarations: [
@@ -22,9 +26,13 @@ import { RegisterComponent } from "./pages/register/register.component";
 		FooterComponent,
 		ContactComponent,
 		RegisterComponent,
+  RestaurantComponent,
+  ClickStopPropagationDirective,
+  DishComponent,
 	],
 	imports: [
 		BrowserModule,
+		AdminModule,
 		AppRoutesModule,
 		HttpClientModule,
 		NgHttpLoaderModule.forRoot(),

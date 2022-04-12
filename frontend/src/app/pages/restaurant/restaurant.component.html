@@ -1,0 +1,165 @@
+<!-- PAGE HERO
+			============================================= -->
+<div id="contacts-page" class="page-hero-section division">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="hero-txt text-center white-color">
+
+					<!-- Title -->
+					<h2 class="h2-xl">{{restaurant.name}}</h2>
+
+				</div>
+			</div>
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</div>    <!-- END PAGE HERO -->
+
+
+<section id="single-post" class="wide-100 single-post-section division">
+	<div class="container">
+
+
+		<!-- SINGLE POST CONTENT -->
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="single-post-wrapper">
+
+					<!-- BLOG POST TEXT -->
+					<div class="single-post-txt pb-30">
+
+						<!-- Text -->
+						<p class="h4">{{ restaurant.description }}
+						</p>
+
+					</div>
+
+					<div class="single-post-txt pt-3">
+						<p class="h4 txt-400"><i class="fa fa-map-marked-alt"></i> {{ restaurant.address }}</p>
+					</div>
+					<div class="single-post-txt py-1">
+						<p class="h4 txt-400"><i class="fa fa-phone-alt"></i> {{ restaurant.contacts }}</p>
+					</div>
+
+					<!-- SINGLE POST SHARE LINKS -->
+					<div class="row post-share-links d-flex align-items-center">
+
+						<!-- POST TAGS -->
+						<div class="col-md-9 col-xl-8 post-tags-list">
+							<span><a>Sakafo Malagasy</a></span>
+							<span><a>Antananarivo</a></span>
+							<span><a>Matsiro</a></span>
+						</div>
+
+						<!-- POST SHARE ICONS -->
+						<div class="col-md-3 col-xl-4 post-share-list text-right">
+							<ul class="share-social-icons text-center clearfix">
+								<li><a href="#" class="share-ico ico-facebook"><i
+									class="fab fa-facebook-square"></i></a></li>
+								<li><a href="#" class="share-ico ico-twitter"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#" class="share-ico ico-like"><i class="far fa-bookmark"></i></a></li>
+							</ul>
+						</div>
+
+					</div>    <!-- END SINGLE POST SHARE -->
+
+				</div>
+			</div>
+		</div>    <!-- END SINGLE POST CONTENT -->
+
+
+	</div>     <!-- End container -->
+</section>
+
+
+<!-- SECTION TITLE -->
+<div class="row">
+	<div class="col-lg-10 offset-lg-1">
+		<div class="section-title text-center">
+
+			<!-- Title 	-->
+			<h2 class="h2-xl red-color">Ireo kaly ao amin'ny {{restaurant.name}}</h2>
+
+			<!-- Text -->
+			<p class="p-xl">
+				Ireto avy ireo sakafo ato.
+			</p>
+
+		</div>
+	</div>
+</div>
+<!-- MENU-6
+============================================= -->
+<section id="menu-6" class="wide-70 menu-section division">
+	<div class="container">
+		<div class="row">
+
+
+			<!-- MENU ITEM #1 -->
+			<div *ngFor="let item of dishList" class="col-sm-6 col-lg-3">
+				<div class="menu-6-item bg-white">
+
+					<!-- IMAGE -->
+					<div class="menu-6-img rel">
+						<div class="hover-overlay">
+
+							<!-- Image -->
+							<img class="img-fluid" src="assets/images/menu/burger-11.jpg" alt="menu-image"/>
+
+							<!-- Item Code -->
+							<span class="item-code bg-tra-dark">Code: 0850</span>
+
+							<!-- Zoom Icon -->
+							<div class="menu-img-zoom ico-25">
+								<a href="assets/images/menu/burger-11.jpg" class="image-link">
+									<span class="flaticon-zoom"></span>
+								</a>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- TEXT -->
+					<div class="menu-6-txt rel">
+
+						<!-- Rating -->
+						<div class="item-rating">
+							<div class="stars-rating stars-lg">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star-half-alt"></i>
+							</div>
+						</div>
+
+						<!-- Like Icon -->
+						<div class="like-ico ico-25">
+							<a href="#"><span class="flaticon-heart"></span></a>
+						</div>
+
+						<!-- Title -->
+						<h5 class="h5-sm"><a href="">{{item.name}}</a></h5>
+
+						<!-- Description -->
+						<p class="grey-color">{{item.description | slice:0:20}}...</p>
+
+						<!-- Price -->
+						<div class="menu-6-price bg-coffee">
+							<h5 class="h5-xs yellow-color">{{item.price}} Ar</h5>
+						</div>
+
+						<!-- Add To Cart -->
+						<div class="add-to-cart bg-yellow ico-10">
+							<a href="product-single.html"><span class="flaticon-shopping-bag"></span> Add to Cart</a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>    <!-- END MENU ITEM #1 -->
+
+
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</section>    <!-- END MENU-6 -->
