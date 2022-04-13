@@ -9,7 +9,6 @@ import { UserService } from "./user.service";
 	imports: [CommonModule, FormsModule, ReactiveFormsModule],
 	declarations: [UserListComponent, UserEditComponent],
 	providers: [UserService],
-	exports: [FormsModule]
+	exports: [FormsModule],
 })
-export class UserModule {
-}
+export class UserModule {}

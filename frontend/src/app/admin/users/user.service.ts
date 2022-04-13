@@ -13,8 +13,7 @@ export class UserService {
 	userList: User[] = [];
 	api = "http://localhost:3000/api/user";
 
-	constructor(private http: HttpClient) {
-	}
+	constructor(private http: HttpClient) {}
 
 	findById(id: string): Observable<ResponseData> {
 		const url = `${this.api}/${id}`;
@@ -37,7 +36,7 @@ export class UserService {
 
 	find(filter: UserFilter): Observable<ResponseData> {
 		const params = {
-			name: filter.name
+			name: filter.name,
 		};
 
 		return this.http.get<ResponseData>(this.api, { headers });

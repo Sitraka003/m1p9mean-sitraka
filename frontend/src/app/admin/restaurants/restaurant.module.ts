@@ -9,7 +9,6 @@ import { RestaurantService } from "./restaurant.service";
 	imports: [CommonModule, FormsModule, ReactiveFormsModule],
 	declarations: [RestaurantListComponent, RestaurantEditComponent],
 	providers: [RestaurantService],
-	exports: [FormsModule]
+	exports: [FormsModule],
 })
-export class RestaurantModule {
-}
+export class RestaurantModule {}

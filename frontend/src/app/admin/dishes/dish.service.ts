@@ -12,8 +12,7 @@ export class DishService {
 	dishList: Dish[] = [];
 	api = "http://localhost:3000/api/dish";
 
-	constructor(private http: HttpClient) {
-	}
+	constructor(private http: HttpClient) {}
 
 	findById(id: string): Observable<ResponseData> {
 		const url = `${this.api}/${id}`;
@@ -29,12 +28,12 @@ export class DishService {
 
 	loadByResto(resto_id: string) {
 		this.findByResto(resto_id).subscribe(
-			result => {
+			(result) => {
 				if (result.code === "OK") {
 					this.dishList = result.data;
 				}
 			},
-			err => {
+			(err) => {
 				console.error("error loading", err);
 			}
 		);
@@ -55,12 +54,11 @@ export class DishService {
 
 	find(filter: DishFilter): Observable<ResponseData> {
 		const params = {
-			restaurant: filter.restaurant
+			restaurant: filter.restaurant,
 		};
 
 		return this.http.get<ResponseData>(this.api, { params, headers });
 	}
-
 
 	save(entity: Dish): Observable<Dish> {
 		let params = new HttpParams();

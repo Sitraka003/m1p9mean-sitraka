@@ -17,10 +17,7 @@ export class UserListComponent implements OnInit {
 		return this.userService.userList;
 	}
 
-	constructor(
-		private userService: UserService,
-		private router: Router
-	) {}
+	constructor(private userService: UserService, private router: Router) {}
 
 	ngOnInit() {
 		this.search();

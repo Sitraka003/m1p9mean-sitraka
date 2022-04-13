@@ -9,7 +9,6 @@ import { DishService } from "./dish.service";
 	imports: [CommonModule, FormsModule, ReactiveFormsModule],
 	declarations: [DishListComponent, DishEditComponent],
 	providers: [DishService],
-	exports: [FormsModule]
+	exports: [FormsModule],
 })
-export class DishModule {
-}
+export class DishModule {}

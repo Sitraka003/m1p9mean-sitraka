@@ -7,11 +7,17 @@ import { RestaurantModule } from "./restaurants/restaurant.module";
 import { DishModule } from "./dishes/dish.module";
 import { UserModule } from "./users/user.module";
 import { ROLES } from "./roles";
+import { LoggedInGuard } from "../config/guard.service";
 
 @NgModule({
 	declarations: [AdminComponent, NavbarComponent],
-	imports: [CommonModule, AdminRoutesModule, RestaurantModule, DishModule, UserModule],
-	providers: [ROLES]
+	imports: [
+		CommonModule,
+		AdminRoutesModule,
+		RestaurantModule,
+		DishModule,
+		UserModule,
+	],
+	providers: [ROLES, LoggedInGuard],
 })
-export class AdminModule {
-}
+export class AdminModule {}

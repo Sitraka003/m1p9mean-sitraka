@@ -196,10 +196,6 @@
 
 					</li>
 
-					<li><a href="/admin">Admin</a>
-
-					</li>
-
 					<!-- BASKET ICON -->
 					<li class="basket-ico ico-30">
 						<a href="cart">
@@ -208,11 +204,20 @@
 					</li>
 
 					<!-- HEADER BUTTON  -->
-<!--					<li class="nav-btn yellow-color" *ngIf="isConnected"><a class="" href="">Hiditra</a></li>-->
+					<!--					<li class="nav-btn yellow-color" *ngIf="isConnected"><a class="" href="">Hiditra</a></li>-->
 					<li *ngIf="!isConnected"><a class=""><i class=" fa fa-user"></i></a>
 						<ul>
-							<li class="nav-btn yellow-color"><a class="" href="">Hiditra</a></li>
-							<li class="nav-btn yellow-color"><a class="" routerLink="/register">Hisoratra anarana</a></li>
+							<li class="nav-btn yellow-color"><a class="" routerLink="/login" appClickStopPropagation
+																(click)="login()">Hiditra</a></li>
+							<li class="nav-btn yellow-color"><a class="" routerLink="/register">Hisoratra anarana</a>
+							</li>
+						</ul>
+					</li>
+					<li *ngIf="isConnected">
+						<a href="/admin"><i class="fa fa-user"></i> {{ username }}</a>
+						<ul>
+							<li class="nav-btn yellow-color"><a class="" href appClickStopPropagation
+																(click)="logout()">Hivoaka</a></li>
 						</ul>
 					</li>
 				</ul>

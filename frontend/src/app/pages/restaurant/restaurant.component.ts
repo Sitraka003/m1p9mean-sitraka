@@ -9,7 +9,7 @@ import { DishService } from "../../admin/dishes/dish.service";
 @Component({
 	selector: "app-restaurant",
 	templateUrl: "./restaurant.component.html",
-	styleUrls: ["./restaurant.component.css"]
+	styleUrls: ["./restaurant.component.css"],
 })
 export class RestaurantComponent implements OnInit {
 	id!: string;
@@ -20,8 +20,7 @@ export class RestaurantComponent implements OnInit {
 		private router: Router,
 		private restaurantService: RestaurantService,
 		private dishService: DishService
-	) {
-	}
+	) {}
 
 	get dishList(): Dish[] {
 		return this.dishService.dishList;
@@ -52,5 +51,4 @@ export class RestaurantComponent implements OnInit {
 				}
 			);
 	}
-
 }

@@ -4,6 +4,7 @@ import { AdminComponent } from "./admin.component";
 import { RESTAURANT_ROUTES } from "./restaurants/restaurant.routes";
 import { DISH_ROUTES } from "./dishes/dish.routes";
 import { USER_ROUTES } from "./users/user.routes";
+import { LoggedInGuard } from "../config/guard.service";
 
 export const adminRoutes: Routes = [
 	{
@@ -23,6 +24,7 @@ export const adminRoutes: Routes = [
 				children: USER_ROUTES,
 			},
 		],
+		canActivate: [LoggedInGuard],
 	},
 ];
 

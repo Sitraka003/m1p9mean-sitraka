@@ -1,4 +1,10 @@
-const { AJV_EMAIL, AJV_NUMTEL1, AJV_NUMTEL2, AJV_NUMTEL3, AJV_GOOD_PASSWORD } = require("../const");
+const {
+	AJV_EMAIL,
+	AJV_NUMTEL1,
+	AJV_NUMTEL2,
+	AJV_NUMTEL3,
+	AJV_GOOD_PASSWORD,
+} = require("../const");
 const { ROLES } = require("../const");
 const rolePattern = `^${ROLES.reduce(
 	(all, newItem) => `${all}$|^${newItem}`

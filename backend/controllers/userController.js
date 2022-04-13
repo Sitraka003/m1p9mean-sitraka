@@ -16,6 +16,28 @@ const {
 const md5 = require("md5");
 
 module.exports = {
+	async login(req, res) {
+		const body = only(req.body, "email password");
+		const user = await UserModel.findOne({
+			email: body.email,
+			hashed_password: md5(body.password),
+		});
+		if (!user) {
+			return sendResponse(
+				res,
+				404,
+				"NOT_FOUND",
+				"The user was not found"
+			);
+		}
+		return sendResponse(
+			res,
+			200,
+			"OK",
+			"User connected",
+			only(user, USER_FIND)
+		);
+	},
 	async createUser(req, res) {
 		const baseUrlPath = req.baseUrl + req.path;
 		let _ajv, _body;
@@ -50,12 +72,12 @@ module.exports = {
 		body.hashed_password = md5(body.password);
 
 		if (body.role && body.role !== "") {
-			body.role = [body.role]
+			body.role = [body.role];
 		}
 		await UserModel.init();
 		try {
 			const user = new UserModel(body);
-			console.log(user)
+			console.log(user);
 			await user.save();
 
 			return sendResponse(res, 200, "OK", "Success");

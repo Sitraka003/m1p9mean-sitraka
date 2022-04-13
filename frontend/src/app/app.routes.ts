@@ -6,6 +6,7 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { RegisterComponent } from "./pages/register/register.component";
 import { RestaurantComponent } from "./pages/restaurant/restaurant.component";
 import { DishComponent } from "./pages/dish/dish.component";
+import { LoginComponent } from "./pages/login/login.component";
 
 const appRoutes: Routes = [
 	{ path: "", component: HomeComponent, pathMatch: "full" },
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
 	{ path: "dish/:id", component: DishComponent },
 	{ path: "contact", component: ContactComponent },
 	{ path: "register", component: RegisterComponent },
+	{ path: "login", component: LoginComponent },
 
 	{ path: "**", component: PageNotFoundComponent },
 ];

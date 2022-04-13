@@ -5443,8 +5443,8 @@ select:-webkit-autofill:focus {
 	background-position: center center;
 	background-size: cover;
 	background-attachment: scroll !important;
-	padding-top: 170px;
-	padding-bottom: 120px;
+	padding-top: 150px;
+	padding-bottom: 100px;
 }
 
 #about-page {
@@ -5835,8 +5835,9 @@ table td.product-name {
 	padding: 16px 10px 16px 0;
 }
 
-table th.hidden, table td.hidden {
-	display:none !important;
+table th.hidden,
+table td.hidden {
+	display: none !important;
 }
 table th {
 	font-size: 1.15em;

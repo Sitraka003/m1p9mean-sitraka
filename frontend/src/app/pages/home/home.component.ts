@@ -10,7 +10,7 @@ import { Dish } from "../../admin/dishes/dish";
 @Component({
 	selector: "app-home",
 	templateUrl: "./home.component.html",
-	styleUrls: ["./home.component.css"]
+	styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
 	restoFilter = new RestaurantFilter();
@@ -20,8 +20,7 @@ export class HomeComponent implements OnInit {
 		private restaurantService: RestaurantService,
 		private dishService: DishService,
 		private router: Router
-	) {
-	}
+	) {}
 
 	get restaurantList(): Restaurant[] {
 		return this.restaurantService.restaurantList;

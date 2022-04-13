@@ -13,9 +13,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgHttpLoaderModule } from "ng-http-loader";
 import { RegisterComponent } from "./pages/register/register.component";
 import { AdminModule } from "./admin/admin.module";
-import { RestaurantComponent } from './pages/restaurant/restaurant.component';
-import { ClickStopPropagationDirective } from './directives/click-stop-propagation.directive';
-import { DishComponent } from './pages/dish/dish.component';
+import { RestaurantComponent } from "./pages/restaurant/restaurant.component";
+import { ClickStopPropagationDirective } from "./directives/click-stop-propagation.directive";
+import { DishComponent } from "./pages/dish/dish.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { LoginService } from "./pages/login/login.service";
 
 @NgModule({
 	declarations: [
@@ -26,9 +28,10 @@ import { DishComponent } from './pages/dish/dish.component';
 		FooterComponent,
 		ContactComponent,
 		RegisterComponent,
-  RestaurantComponent,
-  ClickStopPropagationDirective,
-  DishComponent,
+		RestaurantComponent,
+		ClickStopPropagationDirective,
+		DishComponent,
+		LoginComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -39,7 +42,7 @@ import { DishComponent } from './pages/dish/dish.component';
 		FormsModule,
 		ReactiveFormsModule,
 	],
-	providers: [],
+	providers: [LoginService],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

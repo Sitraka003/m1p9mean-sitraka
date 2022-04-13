@@ -33,10 +33,7 @@ export class DishEditComponent implements OnInit {
 			)
 			.subscribe(
 				(dish) => {
-					this.dish =
-						dish instanceof Dish
-							? dish
-							: dish.data;
+					this.dish = dish instanceof Dish ? dish : dish.data;
 					this.feedback = {};
 				},
 				(err) => {

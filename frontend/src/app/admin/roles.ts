@@ -3,11 +3,7 @@ export class ROLES {
 	roles!: string[];
 
 	geRoles() {
-		this.roles = [
-			"Admim Ekaly",
-			"Admin Restaurant",
-			"Client",
-			"Deliverer"];
-		return this.roles
+		this.roles = ["Admim Ekaly", "Admin Restaurant", "Client", "Deliverer"];
+		return this.roles;
 	}
 }

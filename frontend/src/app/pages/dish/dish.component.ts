@@ -8,7 +8,7 @@ import { Dish } from "../../admin/dishes/dish";
 @Component({
 	selector: "app-dish",
 	templateUrl: "./dish.component.html",
-	styleUrls: ["./dish.component.css"]
+	styleUrls: ["./dish.component.css"],
 })
 export class DishComponent implements OnInit {
 	id!: string;
@@ -18,8 +18,7 @@ export class DishComponent implements OnInit {
 		private route: ActivatedRoute,
 		private router: Router,
 		private dishService: DishService
-	) {
-	}
+	) {}
 
 	ngOnInit(): void {
 		this.route.params
@@ -31,16 +30,12 @@ export class DishComponent implements OnInit {
 			)
 			.subscribe(
 				(dish) => {
-					this.dish =
-						dish instanceof Dish
-							? dish
-							: dish.data;
+					this.dish = dish instanceof Dish ? dish : dish.data;
 				},
 				(err) => {
-					 console.log(err)
+					console.log(err);
 					// this.router.navigate(["/"]);
 				}
 			);
 	}
-
 }

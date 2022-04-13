@@ -8,7 +8,7 @@ import { ROLES } from "../../roles";
 
 @Component({
 	selector: "app-user-edit",
-	templateUrl: "./user-edit.component.html"
+	templateUrl: "./user-edit.component.html",
 })
 export class UserEditComponent implements OnInit {
 	id!: string;
@@ -25,8 +25,7 @@ export class UserEditComponent implements OnInit {
 		private router: Router,
 		private userService: UserService,
 		private roles: ROLES
-	) {
-	}
+	) {}
 
 	ngOnInit() {
 		this.route.params
@@ -43,16 +42,13 @@ export class UserEditComponent implements OnInit {
 			)
 			.subscribe(
 				(user) => {
-					this.user =
-						user instanceof User
-							? user
-							: user.data;
+					this.user = user instanceof User ? user : user.data;
 					this.feedback = {};
 				},
 				(err) => {
 					this.feedback = {
 						type: "warning",
-						message: "Error loading"
+						message: "Error loading",
 					};
 				}
 			);
@@ -64,7 +60,7 @@ export class UserEditComponent implements OnInit {
 				this.user = user;
 				this.feedback = {
 					type: "success",
-					message: "Save was successful!"
+					message: "Save was successful!",
 				};
 				setTimeout(async () => {
 					await this.router.navigate(["/admin/users"]);

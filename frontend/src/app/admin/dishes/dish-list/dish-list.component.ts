@@ -17,10 +17,7 @@ export class DishListComponent implements OnInit {
 		return this.DishService.dishList;
 	}
 
-	constructor(
-		private DishService: DishService,
-		private router: Router
-	) {}
+	constructor(private DishService: DishService, private router: Router) {}
 
 	ngOnInit() {
 		this.search();

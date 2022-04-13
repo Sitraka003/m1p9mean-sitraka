@@ -22,10 +22,18 @@ export class Utilities {
 	public static deleteNullOrEmpty(obj: any) {
 		const ret = obj;
 		for (const key in ret) {
-			if (ret.key === null || ((typeof ret.key === "string") && ret.key.trim() === "")) {
+			if (
+				ret.key === null ||
+				(typeof ret.key === "string" && ret.key.trim() === "")
+			) {
 				delete ret.key;
 			}
 		}
 		return ret;
+	}
+
+	public static isConnected() {
+		const _user = localStorage.getItem("user");
+		return !!(_user && _user !== "");
 	}
 }
