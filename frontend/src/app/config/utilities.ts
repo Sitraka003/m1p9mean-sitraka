@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
-import { Constants } from "./constants";
+import {Injectable} from "@angular/core";
+import {NavigationEnd, Router} from "@angular/router";
+import {Constants} from "./constants";
 
 @Injectable()
 export class Utilities {
@@ -35,5 +35,9 @@ export class Utilities {
 	public static isConnected() {
 		const _user = localStorage.getItem("user");
 		return !!(_user && _user !== "");
+	}
+
+	public static getConnected() {
+		return JSON.parse(<string>localStorage.getItem("user"));
 	}
 }

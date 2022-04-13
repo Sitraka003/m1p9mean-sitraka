@@ -18,6 +18,7 @@ import { ClickStopPropagationDirective } from "./directives/click-stop-propagati
 import { DishComponent } from "./pages/dish/dish.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { LoginService } from "./pages/login/login.service";
+import {BasketModel} from "./models/basket.model";
 
 @NgModule({
 	declarations: [
@@ -42,7 +43,7 @@ import { LoginService } from "./pages/login/login.service";
 		FormsModule,
 		ReactiveFormsModule,
 	],
-	providers: [LoginService],
+	providers: [LoginService, BasketModel],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,11 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
-import { Restaurant } from "../../admin/restaurants/restaurant";
-import { RestaurantService } from "../../admin/restaurants/restaurant.service";
-import { RestaurantFilter } from "../../admin/restaurants/restaurant-filter";
-import { DishService } from "../../admin/dishes/dish.service";
-import { DishFilter } from "../../admin/dishes/dish-filter";
-import { Dish } from "../../admin/dishes/dish";
+import {Component, OnInit} from "@angular/core";
+import {NavigationEnd, Router} from "@angular/router";
+import {Restaurant} from "../../admin/restaurants/restaurant";
+import {RestaurantService} from "../../admin/restaurants/restaurant.service";
+import {RestaurantFilter} from "../../admin/restaurants/restaurant-filter";
+import {DishService} from "../../admin/dishes/dish.service";
+import {DishFilter} from "../../admin/dishes/dish-filter";
+import {Dish} from "../../admin/dishes/dish";
+import {BasketModel} from "../../models/basket.model";
 
 @Component({
 	selector: "app-home",
@@ -19,8 +20,10 @@ export class HomeComponent implements OnInit {
 	constructor(
 		private restaurantService: RestaurantService,
 		private dishService: DishService,
-		private router: Router
-	) {}
+		private router: Router,
+		private basketModel: BasketModel,
+	) {
+	}
 
 	get restaurantList(): Restaurant[] {
 		return this.restaurantService.restaurantList;
@@ -38,6 +41,10 @@ export class HomeComponent implements OnInit {
 		this.dishService.load(this.dishFilter);
 	}
 
+	getBasket(): void {
+		this.basketModel.loadBasket();
+	}
+
 	ngOnInit(): void {
 		this.router.events.subscribe((evt) => {
 			if (!(evt instanceof NavigationEnd)) {
@@ -47,14 +54,18 @@ export class HomeComponent implements OnInit {
 		});
 		this.getRestaurants();
 		this.getDishes();
+		this.getBasket();
 	}
 
 	goTo(item: any, type: string) {
-		console.log(item);
 		if (type === "restaurant") {
 			this.router.navigate(["/restaurant/", <Restaurant>item._id]);
 		} else if (type === "dish") {
 			this.router.navigate(["/dish/", <Dish>item._id]);
 		}
+	}
+
+	addToCart(item: Dish) {
+		this.basketModel.addDish(item, 1);
 	}
 }
