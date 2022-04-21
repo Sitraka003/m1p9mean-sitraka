@@ -8,6 +8,14 @@ export const USER_ROUTES: Routes = [
 		component: UserListComponent,
 	},
 	{
+		path: "client",
+		component: UserListComponent,
+	},
+	{
+		path: "deliverer",
+		component: UserListComponent,
+	},
+	{
 		path: ":id",
 		component: UserEditComponent,
 	},

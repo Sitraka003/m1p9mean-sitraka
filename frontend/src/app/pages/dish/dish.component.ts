@@ -4,6 +4,7 @@ import { Restaurant } from "../../admin/restaurants/restaurant";
 import { ActivatedRoute, Router } from "@angular/router";
 import { DishService } from "../../admin/dishes/dish.service";
 import { Dish } from "../../admin/dishes/dish";
+import { BasketModel } from "../../models/basket.model";
 
 @Component({
 	selector: "app-dish",
@@ -13,14 +14,17 @@ import { Dish } from "../../admin/dishes/dish";
 export class DishComponent implements OnInit {
 	id!: string;
 	dish!: Dish;
+	quantity!: number;
 
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
-		private dishService: DishService
+		private dishService: DishService,
+		private basketModel: BasketModel
 	) {}
 
 	ngOnInit(): void {
+		this.quantity = 1;
 		this.route.params
 			.pipe(
 				map((p) => p["id"]),
@@ -37,5 +41,9 @@ export class DishComponent implements OnInit {
 					// this.router.navigate(["/"]);
 				}
 			);
+	}
+	addToCart(item: Dish) {
+		this.basketModel.addDish(item, this.quantity);
+		this.router.navigate(["/basket"]);
 	}
 }

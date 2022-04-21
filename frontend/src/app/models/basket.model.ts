@@ -1,16 +1,15 @@
-import {Dish} from "../admin/dishes/dish";
+import { Dish } from "../admin/dishes/dish";
 
 export type DishBasket = {
-	dish: Dish,
-	quantity: number,
-	subTotal?: number
-}
+	dish: Dish;
+	quantity: number;
+	subTotal?: number;
+};
 
 export class BasketModel {
 	dishBasket!: any[];
 
-	constructor() {
-	}
+	constructor() {}
 
 	loadBasket() {
 		const _basket = localStorage.getItem("basket");
@@ -21,16 +20,15 @@ export class BasketModel {
 		}
 	}
 
-
 	addDish(dish: Dish, quantity: number) {
 		const item = {
 			dish: dish,
 			quantity: quantity,
-			subTotal: dish.price * quantity
-		}
+			subTotal: dish.price * quantity,
+		};
 		const inBasket = this.dishBasket.find((element) => {
 			return item.dish._id === element.dish._id;
-		})
+		});
 		if (!inBasket) {
 			this.dishBasket.push(item);
 			localStorage.setItem("basket", JSON.stringify(this.dishBasket));
@@ -39,12 +37,18 @@ export class BasketModel {
 
 	removeDish(item: any) {
 		this.dishBasket = this.dishBasket.filter((value) => {
-			return value.dish._id !== item.dish._id
+			return value.dish._id !== item.dish._id;
 		});
+		localStorage.setItem("basket", JSON.stringify(this.dishBasket));
+	}
+
+	clearBasket() {
+		this.dishBasket = [];
+		localStorage.removeItem("basket");
 	}
 
 	countDish() {
-		return this.dishBasket.length
+		return this.dishBasket.length;
 	}
 
 	get total() {

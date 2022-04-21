@@ -8,6 +8,7 @@ import { DishModule } from "./dishes/dish.module";
 import { UserModule } from "./users/user.module";
 import { ROLES } from "./roles";
 import { LoggedInGuard } from "../config/guard.service";
+import { OrderModule } from "./orders/order.module";
 
 @NgModule({
 	declarations: [AdminComponent, NavbarComponent],
@@ -17,6 +18,7 @@ import { LoggedInGuard } from "../config/guard.service";
 		RestaurantModule,
 		DishModule,
 		UserModule,
+		OrderModule,
 	],
 	providers: [ROLES, LoggedInGuard],
 })

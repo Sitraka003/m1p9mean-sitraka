@@ -35,11 +35,9 @@ export class UserService {
 	}
 
 	find(filter: UserFilter): Observable<ResponseData> {
-		const params = {
-			name: filter.name,
-		};
+		const params = JSON.parse(JSON.stringify(filter));
 
-		return this.http.get<ResponseData>(this.api, { headers });
+		return this.http.get<ResponseData>(this.api, { params, headers });
 	}
 
 	save(entity: User): Observable<User> {

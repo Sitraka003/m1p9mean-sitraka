@@ -7,7 +7,7 @@ const only = require("only");
 const { sendResponse } = require("../services/utility");
 const {
 	ERROR_500,
-	INCORECT_VALUE,
+	INCORRECT_VALUE,
 	RESTO_CREATE,
 	RESTO_UPDATE,
 	RESTO_FIND,

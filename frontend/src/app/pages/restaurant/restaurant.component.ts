@@ -5,6 +5,7 @@ import { map, switchMap } from "rxjs/operators";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Dish } from "../../admin/dishes/dish";
 import { DishService } from "../../admin/dishes/dish.service";
+import { BasketModel } from "../../models/basket.model";
 
 @Component({
 	selector: "app-restaurant",
@@ -19,7 +20,8 @@ export class RestaurantComponent implements OnInit {
 		private route: ActivatedRoute,
 		private router: Router,
 		private restaurantService: RestaurantService,
-		private dishService: DishService
+		private dishService: DishService,
+		private basketModel: BasketModel
 	) {}
 
 	get dishList(): Dish[] {
@@ -50,5 +52,9 @@ export class RestaurantComponent implements OnInit {
 					this.router.navigate(["/"]);
 				}
 			);
+	}
+
+	addToCart(item: Dish) {
+		this.basketModel.addDish(item, 1);
 	}
 }

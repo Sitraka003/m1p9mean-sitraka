@@ -1,9 +1,9 @@
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
-import {ClientModel} from "../models/client.model";
-import {Utilities} from "../config/utilities";
-import {BasketModel, DishBasket} from "../models/basket.model";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { ClientModel } from "../models/client.model";
+import { Utilities } from "../config/utilities";
+import { BasketModel, DishBasket } from "../models/basket.model";
 
 @Injectable({
 	providedIn: "root",
@@ -17,35 +17,33 @@ export class OrderService {
 			"Content-Type": "application/json",
 		}),
 	};
-	private dishBasket!: DishBasket[];
+	private dishBasket!: any[];
 
-	constructor(private httpClient: HttpClient) {
-	}
+	constructor(private httpClient: HttpClient) {}
 
 	public validateOrder(): Observable<BasketModel> {
 		this.basket = localStorage.getItem("basket");
 		if (this.basket != null) {
-			this.dishBasket = JSON.parse(this.basket)
+			this.dishBasket = JSON.parse(this.basket);
 		} else {
-			throw "Basket not found"
+			throw "Basket not found";
 		}
 
-		const basket = this.dishBasket.map(currentDish => {
+		const basket = this.dishBasket.map((currentDish) => {
 			return {
 				dish: currentDish.dish._id,
-				quantity: currentDish.quantity
-			}
+				number: currentDish.quantity,
+			};
 		});
 		const body = {
 			basket: basket,
-			user: Utilities.getConnected()._id,
-			address: Utilities.getConnected().address
-		}
+			client: Utilities.getConnected()._id,
+			address: Utilities.getConnected().address,
+		};
 		return this.httpClient.post<BasketModel>(
 			this.apiUrl + "create",
 			JSON.stringify(body),
 			this.httpOptions
 		);
-
 	}
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
+import { Location } from "@angular/common";
 import { UserFilter } from "../user-filter";
 import { UserService } from "../user.service";
 import { User } from "../user";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ROLES } from "../../roles";
 
 @Component({
 	selector: "app-user",
@@ -17,13 +19,23 @@ export class UserListComponent implements OnInit {
 		return this.userService.userList;
 	}
 
-	constructor(private userService: UserService, private router: Router) {}
+	constructor(
+		private route: ActivatedRoute,
+		private userService: UserService,
+		private readonly location: Location,
+		private router: Router
+	) {}
 
 	ngOnInit() {
-		this.search();
+		this.search(this.location.path());
 	}
 
-	search(): void {
+	search(url: string): void {
+		if (url === "/admin/users/client") {
+			this.filter.role = ROLES.CLIENT;
+		} else if (url === "/admin/users/deliverer") {
+			this.filter.role = ROLES.DELIVERER;
+		}
 		this.userService.load(this.filter);
 	}
 
@@ -44,7 +56,7 @@ export class UserListComponent implements OnInit {
 						message: "Delete was successful!",
 					};
 					setTimeout(() => {
-						this.search();
+						this.search(this.location.path());
 					}, 1000);
 				},
 				error: (err) => {

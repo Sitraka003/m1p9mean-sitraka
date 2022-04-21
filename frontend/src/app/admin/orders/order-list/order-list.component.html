@@ -1,0 +1,58 @@
+<div class="container pt-20">
+	<ol class="breadcrumb float-right">
+		<li class="breadcrumb-item"><a routerLink="/admin">Admin</a></li>
+		<li class="breadcrumb-item active text-warning">Orders</li>
+	</ol>
+	<div class="mt-30 pt-20">
+		<div class="header">
+			<h2 class="title">Order List</h2>
+		</div>
+		<div class="content">
+			<form #f="ngForm">
+				<!--
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input [(ngModel)]="filter.name" id="name" name="name" class="form-control">
+				</div>
+				-->
+
+<!--				<button (click)="search()" [disabled]="!f?.valid" class="btn btn-red">Search</button>-->
+			</form>
+		</div>
+	</div>
+	<div class="mt-10" *ngIf="orderList.length > 0">
+		<div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+		<div class="table-responsive">
+			<table class="table table-centered table-hover mb-0" id="datatable">
+				<thead>
+				<tr>
+					<th class="border-top-0" scope="col">Id</th>
+					<th class="border-top-0" scope="col">Order Id</th>
+					<th class="border-top-0" scope="col">Total</th>
+					<th class="border-top-0" scope="col">Restaurant</th>
+					<th class="border-top-0" scope="col">Client</th>
+					<th class="border-top-0" scope="col">Address</th>
+					<th class="border-top-0" scope="col">Status</th>
+					<th class="border-top-0" scope="col" style="width:120px"></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr *ngFor="let item of orderList" [class.active]="item === selectedOrder">
+
+					<td>{{item._id}}</td>
+					<td>{{item.orderId}}</td>
+					<td>{{item.total}} Ar</td>
+					<td>{{item.restaurant.name}}</td>
+					<td>{{item.client.name + " " + item.client.firstname}}</td>
+					<td>{{item.address}}</td>
+					<td>{{item.status}}</td>
+					<td style="white-space: nowrap">
+						<button (click)="delete(item)" class="btn btn-danger">Delete</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

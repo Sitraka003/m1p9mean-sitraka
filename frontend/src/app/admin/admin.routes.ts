@@ -5,6 +5,7 @@ import { RESTAURANT_ROUTES } from "./restaurants/restaurant.routes";
 import { DISH_ROUTES } from "./dishes/dish.routes";
 import { USER_ROUTES } from "./users/user.routes";
 import { LoggedInGuard } from "../config/guard.service";
+import { ORDER_ROUTES } from "./orders/order.routes";
 
 export const adminRoutes: Routes = [
 	{
@@ -22,6 +23,10 @@ export const adminRoutes: Routes = [
 			{
 				path: "users",
 				children: USER_ROUTES,
+			},
+			{
+				path: "orders",
+				children: ORDER_ROUTES,
 			},
 		],
 		canActivate: [LoggedInGuard],

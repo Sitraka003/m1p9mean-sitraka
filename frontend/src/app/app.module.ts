@@ -18,7 +18,8 @@ import { ClickStopPropagationDirective } from "./directives/click-stop-propagati
 import { DishComponent } from "./pages/dish/dish.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { LoginService } from "./pages/login/login.service";
-import {BasketModel} from "./models/basket.model";
+import { BasketModel } from "./models/basket.model";
+import { BasketComponent } from "./pages/basket/basket.component";
 
 @NgModule({
 	declarations: [
@@ -33,6 +34,7 @@ import {BasketModel} from "./models/basket.model";
 		ClickStopPropagationDirective,
 		DishComponent,
 		LoginComponent,
+		BasketComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -45,5 +47,6 @@ import {BasketModel} from "./models/basket.model";
 	],
 	providers: [LoginService, BasketModel],
 	bootstrap: [AppComponent],
+	exports: [ClickStopPropagationDirective],
 })
 export class AppModule {}

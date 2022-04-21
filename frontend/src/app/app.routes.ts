@@ -7,10 +7,12 @@ import { RegisterComponent } from "./pages/register/register.component";
 import { RestaurantComponent } from "./pages/restaurant/restaurant.component";
 import { DishComponent } from "./pages/dish/dish.component";
 import { LoginComponent } from "./pages/login/login.component";
+import { BasketComponent } from "./pages/basket/basket.component";
 
 const appRoutes: Routes = [
 	{ path: "", component: HomeComponent, pathMatch: "full" },
 	{ path: "restaurant/:id", component: RestaurantComponent },
+	{ path: "basket", component: BasketComponent },
 	{ path: "dish/:id", component: DishComponent },
 	{ path: "contact", component: ContactComponent },
 	{ path: "register", component: RegisterComponent },

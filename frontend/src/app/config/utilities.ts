@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {NavigationEnd, Router} from "@angular/router";
-import {Constants} from "./constants";
+import { Injectable } from "@angular/core";
+import { NavigationEnd, Router } from "@angular/router";
+import { Constants } from "./constants";
 
 @Injectable()
 export class Utilities {

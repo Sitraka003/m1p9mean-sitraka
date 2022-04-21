@@ -8,10 +8,11 @@ const { sendResponse } = require("../services/utility");
 const {
 	CLIENT_REGISTER,
 	ERROR_500,
-	INCORECT_VALUE,
+	INCORRECT_VALUE,
 	USER_CREATE,
 	USER_UPDATE,
 	USER_FIND,
+	ROLES,
 } = require("../services/const");
 const md5 = require("md5");
 
@@ -41,9 +42,11 @@ module.exports = {
 	async createUser(req, res) {
 		const baseUrlPath = req.baseUrl + req.path;
 		let _ajv, _body;
+		console.log(req.body);
 		if (baseUrlPath.includes("api/client/register")) {
 			_ajv = ajvUserService.getSchemaRegister();
 			_body = only(req.body, CLIENT_REGISTER);
+			_body.role = "Client";
 		} else {
 			_ajv = ajvUserService.getSchemaCreateUser();
 			_body = only(req.body, USER_CREATE);
@@ -65,7 +68,7 @@ module.exports = {
 			return sendResponse(
 				res,
 				400,
-				INCORECT_VALUE,
+				INCORRECT_VALUE,
 				"Password and confirmPassword didn't maatch"
 			);
 		// Hash password
@@ -163,8 +166,21 @@ module.exports = {
 	},
 
 	async findAllUser(req, res) {
+		const role = req.query.role;
+		let params = {};
 		try {
-			const users = await UserModel.find({}, USER_FIND).exec();
+			if (role && role !== "") {
+				if (!ROLES.includes(role))
+					return sendResponse(
+						res,
+						400,
+						INCORRECT_VALUE,
+						"Incorrect Value"
+					);
+				params.role = role;
+			}
+
+			const users = await UserModel.find(params, USER_FIND).exec();
 			return sendResponse(
 				res,
 				200,

@@ -7,6 +7,9 @@ const UserModel = mongoose.model("User", userSchema);
 const dishSchema = require("../models/dish");
 const DishModel = mongoose.model("Dish", dishSchema);
 
+const restoSchema = require("../models/restaurant");
+const RestoModel = mongoose.model("Restaurant", restoSchema);
+
 const OrderModel = mongoose.model("Order", orderSchema);
 const ajvOrderService = require("../services/ajv/ajvOrder");
 const ajvService = require("../services/ajvService");
@@ -14,12 +17,15 @@ const only = require("only");
 const { sendResponse } = require("../services/utility");
 const {
 	ERROR_500,
-	INCORECT_VALUE,
+	INCORRECT_VALUE,
 	ORDER_CREATE,
 	ORDER_CREATE_RETURNED,
 	ORDER_UPDATE,
 	ORDER_FIND,
 	DISH_FIND,
+	USER_FIND,
+	RESTO_FIND,
+	USER_FIND_POPULATE,
 } = require("../services/const");
 
 module.exports = {
@@ -142,6 +148,150 @@ module.exports = {
 			);
 		} catch (e) {
 			console.log(e);
+			return sendResponse(res, 500, ERROR_500);
+		}
+	},
+
+	async getAllOrders(req, res) {
+		try {
+			const orders = await OrderModel.find({}, ORDER_FIND)
+				.populate("client", USER_FIND_POPULATE)
+				.populate("restaurant", RESTO_FIND)
+				.exec();
+			// If user not found
+			if (!orders) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The order was not found"
+				);
+			}
+			console.log(orders.length);
+			return sendResponse(
+				res,
+				200,
+				"OK",
+				"Success",
+				orders.map((order) => only(order, ORDER_FIND))
+			);
+		} catch (e) {
+			return sendResponse(res, 500, ERROR_500);
+		}
+	},
+
+	async getOrder(req, res) {
+		const _id = req.params._id;
+		try {
+			const order = await OrderModel.findById(_id, ORDER_FIND)
+				.populate("client", USER_FIND_POPULATE)
+				.populate("restaurant", RESTO_FIND)
+				.exec();
+			// If user not found
+			if (!order) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The order was not found"
+				);
+			}
+			console.log(order);
+			return sendResponse(
+				res,
+				200,
+				"OK",
+				"Success",
+				only(order, ORDER_FIND)
+			);
+		} catch (e) {
+			return sendResponse(res, 500, ERROR_500);
+		}
+	},
+
+	async getBy(req, res) {
+		const baseUrlPath = req.baseUrl + req.path;
+		let filter;
+		if (baseUrlPath.includes("api/order/client")) {
+			const _id_client = req.params.client_id;
+			const user = await UserModel.findById(_id_client, USER_FIND).exec();
+			console.log(user);
+			if (!user || (user && !user.role.includes("Client"))) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The user was not found"
+				);
+			}
+
+			filter = {
+				client: _id_client,
+			};
+		} else if (baseUrlPath.includes("api/order/restaurant")) {
+			const _id_restaurant = req.params.restaurant_id;
+			const restaurant = await RestoModel.findById(
+				_id_restaurant,
+				RESTO_FIND
+			).exec();
+			if (!restaurant) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The restaurant was not found"
+				);
+			}
+
+			filter = {
+				restaurant: _id_restaurant,
+			};
+		} else if (baseUrlPath.includes("api/order/deliverer")) {
+			const _id_deliverer = req.params.deliverer_id;
+
+			const user = await UserModel.findById(
+				_id_deliverer,
+				USER_FIND
+			).exec();
+			if (!user || (user && !user.role.includes("Deliverer"))) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The user was not found"
+				);
+			}
+
+			filter = {
+				deliverer: _id_deliverer,
+			};
+		} else {
+			return sendResponse(res, 500, ERROR_500);
+		}
+
+		try {
+			const orders = await OrderModel.find(filter, ORDER_FIND)
+				.populate("client", USER_FIND_POPULATE)
+				.populate("restaurant", RESTO_FIND)
+				.exec();
+			// If user not found
+			if (orders.length === 0) {
+				return sendResponse(
+					res,
+					404,
+					"NOT_FOUND",
+					"The order was not found"
+				);
+			}
+			console.log(orders);
+			return sendResponse(
+				res,
+				200,
+				"OK",
+				"Success",
+				orders.map((order) => only(order, ORDER_FIND))
+			);
+		} catch (e) {
 			return sendResponse(res, 500, ERROR_500);
 		}
 	},

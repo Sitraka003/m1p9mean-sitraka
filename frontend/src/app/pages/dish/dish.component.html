@@ -36,7 +36,7 @@
 
 						<!-- TAB-2 CONTENT -->
 						<div id="tab-2-img" class="tab-content text-center">
-							<img class="img-fluid" src="https://picsum.photos/300" alt="menu-image">
+							<img class="img-fluid" src="https://picsum.photos/400" alt="menu-image">
 						</div>
 
 						<!-- TAB-3 CONTENT -->
@@ -55,12 +55,12 @@
 
 									<!-- TAB-1 LINK -->
 									<li class="tab-link displayed" data-tab="tab-1-img">
-										<img src="https://picsum.photos/300" alt="menu-image">
+										<img src="https://picsum.photos/600" alt="menu-image">
 									</li>
 
 									<!-- TAB-2 LINK -->
 									<li class="tab-link" data-tab="tab-2-img">
-										<img src="https://picsum.photos/300" alt="menu-image">
+										<img src="https://picsum.photos/400" alt="menu-image">
 									</li>
 
 									<!-- TAB-2 LINK -->
@@ -121,19 +121,13 @@
 							<p *ngIf="dish.tags.length > 0">Tags: {{dish.tags}}</p>
 						</div>
 
-						<input class="qty" type="number" min="1" max="20" value="1">
+						<input class="qty" type="number" min="1" max="20" [(ngModel)]="quantity">
 
 						<!-- Add To Cart -->
 						<div class="add-to-cart-btn bg-yellow ico-20 text-center">
-							<a href="cart.html"><span class="flaticon-shopping-bag"></span> Add to Cart</a>
+							<a href="" appClickStopPropagation (click)="addToCart(dish)"><span class="flaticon-shopping-bag"></span> Ho vidiko</a>
 						</div>
 
-						<!-- List -->
-						<ul class="txt-list">
-							<li class="list-item"><p class="p-sm">We accept credit cards or cash to a courier</p></li>
-							<li class="list-item"><p class="p-sm">Shipping cost is $2 (Free from $35)</p></li>
-							<li class="list-item"><p class="p-sm">Order before noon for same day dispatch</p></li>
-						</ul>
 
 					</div>    <!-- END TEXT-->
 

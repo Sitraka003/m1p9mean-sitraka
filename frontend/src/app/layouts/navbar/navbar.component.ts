@@ -1,9 +1,9 @@
-import {Component, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
-import {LoginService} from "../../pages/login/login.service";
-import {User} from "../../admin/users/user";
-import {Utilities} from "../../config/utilities";
-import {BasketModel} from "../../models/basket.model";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { LoginService } from "../../pages/login/login.service";
+import { User } from "../../admin/users/user";
+import { Utilities } from "../../config/utilities";
+import { BasketModel } from "../../models/basket.model";
 
 @Component({
 	selector: "app-navbar",
@@ -15,9 +15,7 @@ export class NavbarComponent implements OnInit {
 	isConnected = false;
 	user!: User;
 
-	constructor(private router: Router,
-				private basketModel: BasketModel) {
-	}
+	constructor(private router: Router, private basketModel: BasketModel) {}
 
 	getBasket(): void {
 		this.basketModel.loadBasket();
@@ -32,8 +30,13 @@ export class NavbarComponent implements OnInit {
 		}
 		this.getBasket();
 	}
+
 	get basketLength() {
 		return this.basketModel.countDish();
+	}
+
+	goTo(route: string): void {
+		this.router.navigate([route]);
 	}
 
 	login(): void {
