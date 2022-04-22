@@ -44,6 +44,10 @@ export class RegisterComponent implements OnInit {
 		// Reset to top
 		Utilities.scrollToTop(this.router);
 
+		if (Utilities.isConnected()) {
+			this.router.navigate(["/"]);
+		}
+
 		// Form Builder
 		this.registerForm = this.formBuilder.group({
 			name: ["", [Validators.required]],
@@ -63,7 +67,7 @@ export class RegisterComponent implements OnInit {
 			(data) => {
 				console.log(data);
 				this.registerForm.reset();
-				this.router.navigate(["/"]); // Todo replace with login
+				this.router.navigate(["/login"]);
 			},
 			(error) => {
 				this.hasError = true;

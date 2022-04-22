@@ -843,7 +843,6 @@ ul.txt-list {
 /*------------------------------------------*/
 
 .btn {
-	background-color: transparent;
 	font-family: "Oswald", sans-serif;
 	color: #fff;
 	font-size: 16px;
@@ -5444,8 +5443,8 @@ select:-webkit-autofill:focus {
 	background-position: center center;
 	background-size: cover;
 	background-attachment: scroll !important;
-	padding-top: 170px;
-	padding-bottom: 120px;
+	padding-top: 150px;
+	padding-bottom: 100px;
 }
 
 #about-page {
@@ -5538,7 +5537,6 @@ select:-webkit-autofill:focus {
 /*------------------------------------------*/
 
 .breadcrumb-item a {
-	color: #fff;
 	font-size: 0.925rem;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -5546,11 +5544,9 @@ select:-webkit-autofill:focus {
 }
 
 .breadcrumb-item a:hover {
-	color: #fff;
 }
 
 .breadcrumb-item.active {
-	color: #fff;
 	font-size: 0.925rem;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -5560,7 +5556,6 @@ select:-webkit-autofill:focus {
 	font-size: 0.925rem;
 	display: inline-block;
 	padding-right: 10px;
-	color: #fff;
 	content: "/";
 }
 
@@ -5840,6 +5835,10 @@ table td.product-name {
 	padding: 16px 10px 16px 0;
 }
 
+table th.hidden,
+table td.hidden {
+	display: none !important;
+}
 table th {
 	font-size: 1.15em;
 	line-height: 1;

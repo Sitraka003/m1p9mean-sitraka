@@ -1,0 +1,88 @@
+<!-- PAGE HERO
+			============================================= -->
+<div id="register-page" class="page-hero-section division pt-50">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="hero-txt text-center white-color">
+
+					<!-- Title -->
+					<h2 class="h2-xl">Hiditra</h2>
+				</div>
+			</div>
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</div>    <!-- END PAGE HERO -->
+
+<!-- CONTACTS-5
+============================================= -->
+<section id="contacts-5" class="contacts-section division">
+	<div class="container">
+		<!-- SECTION TITLE -->
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="section-title mb-40 text-center">
+
+					<!-- Text -->
+					<p class="p-xl">
+						Raha hisitraka sy hividy ireo sakafo rehetra ato amin'ny E-kaly ianao dia mila tafiditra amin'ny
+						anaran'ny kaontinao.
+					</p>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!-- CONTACT FORM -->
+		<div class="row">
+			<div class="col-lg-4 offset-lg-4">
+				<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="hasError">
+					<strong>Oayyyy kosa!</strong> Misy diso ny mailaka na ny teny miafina anao fa ahitsio.
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="form-holder">
+					<form class="row contact-form" name="loginForm" [formGroup]="loginForm">
+						<!-- Form Input -->
+						<div class="col-md-12">
+							<label for="email">Mailaka*</label>
+							<input id="email" class="form-control" name="email" type="email"
+								   placeholder="example@yopmail.com"
+								   formControlName="email"
+								   [class.is-invalid]="email?.invalid && (email?.dirty || email?.touched)">
+						</div>
+
+						<!-- Form Input -->
+						<div class="col-md-12">
+							<label for="password">Teny miafina*</label>
+							<input type="password" id="password" name="password" class="form-control password"
+								   formControlName="password"
+								   [class.is-invalid]="password?.invalid && (password?.dirty || password?.touched)">
+						</div>
+
+						<!-- Form Button -->
+						<div class="col-md-12 mt-5 text-right">
+							<button type="submit" class="btn btn-md btn-red btn-block submit"
+									(click)="login()">Hiditra
+							</button>
+						</div>
+
+						<div class="col-md-12 mt-5 text-right">
+							<button type="button" appClickStopPropagation
+									class="btn btn-md btn-secondary btn-block"
+									(click)="register()">Hisoratra anarana
+							</button>
+						</div>
+
+
+					</form>
+
+				</div>
+			</div>
+		</div>  <!-- END CONTACT FORM -->
+
+
+	</div>       <!-- End container -->
+</section>    <!-- END CONTACTS-5 -->

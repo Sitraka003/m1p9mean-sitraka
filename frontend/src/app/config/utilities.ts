@@ -18,4 +18,26 @@ export class Utilities {
 			return Constants.API_ENDPOINT_DEV;
 		return Constants.API_ENDPOINT_PROD;
 	}
+
+	public static deleteNullOrEmpty(obj: any) {
+		const ret = obj;
+		for (const key in ret) {
+			if (
+				ret.key === null ||
+				(typeof ret.key === "string" && ret.key.trim() === "")
+			) {
+				delete ret.key;
+			}
+		}
+		return ret;
+	}
+
+	public static isConnected() {
+		const _user = localStorage.getItem("user");
+		return !!(_user && _user !== "");
+	}
+
+	public static getConnected() {
+		return JSON.parse(<string>localStorage.getItem("user"));
+	}
 }

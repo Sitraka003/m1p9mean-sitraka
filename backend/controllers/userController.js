@@ -8,30 +8,57 @@ const { sendResponse } = require("../services/utility");
 const {
 	CLIENT_REGISTER,
 	ERROR_500,
-	INCORECT_VALUE,
+	INCORRECT_VALUE,
 	USER_CREATE,
 	USER_UPDATE,
 	USER_FIND,
+	ROLES,
 } = require("../services/const");
 const md5 = require("md5");
 
 module.exports = {
+	async login(req, res) {
+		const body = only(req.body, "email password");
+		const user = await UserModel.findOne({
+			email: body.email,
+			hashed_password: md5(body.password),
+		});
+		if (!user) {
+			return sendResponse(
+				res,
+				404,
+				"NOT_FOUND",
+				"The user was not found"
+			);
+		}
+		return sendResponse(
+			res,
+			200,
+			"OK",
+			"User connected",
+			only(user, USER_FIND)
+		);
+	},
 	async createUser(req, res) {
 		const baseUrlPath = req.baseUrl + req.path;
 		let _ajv, _body;
+		console.log(req.body);
 		if (baseUrlPath.includes("api/client/register")) {
 			_ajv = ajvUserService.getSchemaRegister();
 			_body = only(req.body, CLIENT_REGISTER);
+			_body.role = "Client";
 		} else {
 			_ajv = ajvUserService.getSchemaCreateUser();
 			_body = only(req.body, USER_CREATE);
+			_body.password = "123456";
+			_body.confirmPassword = "123456";
 		}
 		const ajv = _ajv;
 		const body = _body;
 
 		// Validate the input from user
 		try {
-			ajvService.checkWithAjv(ajv, req.body);
+			ajvService.checkWithAjv(ajv, body);
 		} catch (e) {
 			return sendResponse(res, 400, e);
 		}
@@ -41,15 +68,19 @@ module.exports = {
 			return sendResponse(
 				res,
 				400,
-				INCORECT_VALUE,
+				INCORRECT_VALUE,
 				"Password and confirmPassword didn't maatch"
 			);
 		// Hash password
-		body.hashed_password = md5(req.body.password);
+		body.hashed_password = md5(body.password);
 
+		if (body.role && body.role !== "") {
+			body.role = [body.role];
+		}
 		await UserModel.init();
 		try {
 			const user = new UserModel(body);
+			console.log(user);
 			await user.save();
 
 			return sendResponse(res, 200, "OK", "Success");
@@ -135,8 +166,21 @@ module.exports = {
 	},
 
 	async findAllUser(req, res) {
+		const role = req.query.role;
+		let params = {};
 		try {
-			const users = await UserModel.find({}, USER_FIND).exec();
+			if (role && role !== "") {
+				if (!ROLES.includes(role))
+					return sendResponse(
+						res,
+						400,
+						INCORRECT_VALUE,
+						"Incorrect Value"
+					);
+				params.role = role;
+			}
+
+			const users = await UserModel.find(params, USER_FIND).exec();
 			return sendResponse(
 				res,
 				200,

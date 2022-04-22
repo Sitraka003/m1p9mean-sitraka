@@ -4,9 +4,16 @@
 	[minDuration]="600"
 	[spinner]="spinkit.skThreeBounce"
 ></ng-http-loader>
-<app-navbar></app-navbar>
-<div id="page" class="page">
+
+<ng-template [ngIf]="!isAdmin" [ngIfElse]="elseBlock">
+	<app-navbar></app-navbar>
+	<div id="page" class="page">
+		<router-outlet></router-outlet>
+		<app-footer></app-footer>
+	</div></ng-template>
+<ng-template #elseBlock>
 	<router-outlet></router-outlet>
-	<app-footer></app-footer>
-</div>
+</ng-template>
+
+
 

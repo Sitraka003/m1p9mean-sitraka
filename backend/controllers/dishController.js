@@ -9,7 +9,7 @@ const only = require("only");
 const { sendResponse } = require("../services/utility");
 const {
 	ERROR_500,
-	INCORECT_VALUE,
+	INCORRECT_VALUE,
 	RESTO_FIND,
 	DISH_CREATE,
 	DISH_UPDATE,
@@ -46,7 +46,13 @@ module.exports = {
 			const dish = new DishModel(body);
 			await dish.save();
 
-			return sendResponse(res, 200, "OK", "Success", only(dish, DISH_FIND));
+			return sendResponse(
+				res,
+				200,
+				"OK",
+				"Success",
+				only(dish, DISH_FIND)
+			);
 		} catch (e) {
 			return sendResponse(res, 500, ERROR_500);
 		}

@@ -1,0 +1,128 @@
+<!-- PAGE HERO
+			============================================= -->
+<div id="contacts-page" class="page-hero-section division">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="hero-txt text-center white-color">
+
+					<!-- Title -->
+					<h2 class="h2-xl">Bazary</h2>
+
+				</div>
+			</div>
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</div>    <!-- END PAGE HERO -->
+
+
+<section id="cart-1" class="wide-100 cart-page division">
+	<div class="container">
+		<div *ngIf="!connected" class="alert alert-warning mb-10">Mila kaonty ianao izay vao afaka misitraka sy mividy ny sakafo ato amin'ny E-kaly.
+			<br>Araho ito rohy ito raha
+			<a (click)="goTo('register')" appClickStopPropagation href="">hisoratra anarana</a> na ihany koa
+			<a (click)="goTo('login')" appClickStopPropagation href="">hiditra.</a>
+		</div>
+
+		<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="hasError">
+			<strong>Oayyyy kosa!</strong> Tsy nety ny fisoratanao anarana. Mamerena mandefa afaka kelikely.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+
+		<!-- CART TABLE -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="cart-table mb-70">
+					<table id="myTable">
+						<thead>
+						<tr>
+							<th scope="col">Sakafo</th>
+							<th scope="col" class="text-right">Vidiny</th>
+							<th scope="col" class="text-right">Isany</th>
+							<th scope="col" class="text-right">Fitambarany</th>
+							<th scope="col">Hanala</th>
+						</tr>
+						</thead>
+
+						<tbody>
+
+						<!-- CART ITEM #1 -->
+						<tr *ngFor="let item of basket">
+							<td data-label="Product" class="product-name">
+
+								<!-- Preview -->
+								<div class="cart-product-img"><img [src]="item.dish.images[0] || 'assets/images/menu/burger-11.jpg'" alt="cart-preview">
+								</div>
+
+								<!-- Description -->
+								<div class="cart-product-desc">
+									<h5 class="h5-sm">{{ item.dish.name }}</h5>
+									<p class="p-sm">{{ item.dish.description | slice:0:20}}</p>
+								</div>
+
+							</td>
+
+							<td data-label="Price" class="product-price text-right"><h5
+								class="h5-md">{{ item.dish.price }} Ar</h5></td>
+							<td data-label="Quantity" class="product-qty text-right">
+								<input class="qty" [(ngModel)]="item.quantity" type="number" min="1" max="20">
+							</td>
+							<td data-label="Total" class="product-price-total text-right"><h5
+								class="h5-md">{{ item.dish.price * item.quantity }} Ar</h5></td>
+							<td data-label="Delete" class="td-trash"><i (click)="remove(item)" class="far fa-trash-alt"></i></td>
+
+						</tr>
+
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+		</div>    <!-- END CART TABLE -->
+
+
+		<!-- CART CHECKOUT -->
+		<div class="row">
+
+			<!-- DISCOUNT COUPON -->
+			<div class="col-lg-8">
+				<div class="discount-coupon row pt-15">
+
+
+				</div>
+			</div>
+
+
+			<!-- CHECKOUT -->
+			<div class="col-lg-4">
+				<div class="cart-checkout bg-lightgrey">
+
+					<!-- Title -->
+					<h5 class="h5-lg text-right">Vidin'ny entana</h5>
+
+					<!-- Table -->
+					<table>
+						<tbody>
+						<tr class="last-tr">
+							<td>Fitambarany</td>
+							<td></td>
+							<td class="text-right">{{ total }} Ar</td>
+						</tr>
+						</tbody>
+					</table>
+
+
+					<!-- Button -->
+					<a *ngIf="connected && total > 0" href="#" appClickStopPropagation (click)="validate()" class="btn btn-md btn-salmon tra-salmon-hover">Vidiko</a>
+
+				</div>
+			</div>    <!-- END CHECKOUT -->
+
+
+		</div>      <!-- END CART CHECKOUT -->
+
+
+	</div>       <!-- End container -->
+</section>

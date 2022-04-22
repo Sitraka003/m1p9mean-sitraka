@@ -1,4 +1,10 @@
-const { AJV_EMAIL, AJV_NUMTEL1, AJV_NUMTEL2, AJV_NUMTEL3, AJV_GOOD_PASSWORD } = require("../const");
+const {
+	AJV_EMAIL,
+	AJV_NUMTEL1,
+	AJV_NUMTEL2,
+	AJV_NUMTEL3,
+	AJV_GOOD_PASSWORD,
+} = require("../const");
 const { ROLES } = require("../const");
 const rolePattern = `^${ROLES.reduce(
 	(all, newItem) => `${all}$|^${newItem}`
@@ -72,24 +78,14 @@ module.exports = {
 	getSchemaCreateUser() {
 		return {
 			type: "object",
-			required: ["name", "email", "password", "confirmPassword"],
+			required: ["name", "email"],
 			properties: {
 				email: {
 					type: ["string"],
 					minLength: 1,
 					pattern: AJV_EMAIL,
 				},
-				password: {
-					type: ["string"],
-					minLength: 8,
-					pattern: AJV_GOOD_PASSWORD,
-				},
-				confirmPassword: {
-					type: ["string"],
-					minLength: 8,
-					pattern: AJV_GOOD_PASSWORD,
-				},
-				roles: {
+				role: {
 					oneOf: [
 						{
 							type: ["string", "null"],

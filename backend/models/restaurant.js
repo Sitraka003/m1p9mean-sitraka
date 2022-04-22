@@ -7,6 +7,7 @@ const restaurantSchema = new Schema({
 	address: { type: String, required: false },
 	contacts: { type: Array, required: true },
 	tags: { type: Array, required: false },
+	images: [String]
 });
 
 module.exports = restaurantSchema;

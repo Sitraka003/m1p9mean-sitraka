@@ -12,6 +12,14 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgHttpLoaderModule } from "ng-http-loader";
 import { RegisterComponent } from "./pages/register/register.component";
+import { AdminModule } from "./admin/admin.module";
+import { RestaurantComponent } from "./pages/restaurant/restaurant.component";
+import { ClickStopPropagationDirective } from "./directives/click-stop-propagation.directive";
+import { DishComponent } from "./pages/dish/dish.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { LoginService } from "./pages/login/login.service";
+import { BasketModel } from "./models/basket.model";
+import { BasketComponent } from "./pages/basket/basket.component";
 
 @NgModule({
 	declarations: [
@@ -22,16 +30,23 @@ import { RegisterComponent } from "./pages/register/register.component";
 		FooterComponent,
 		ContactComponent,
 		RegisterComponent,
+		RestaurantComponent,
+		ClickStopPropagationDirective,
+		DishComponent,
+		LoginComponent,
+		BasketComponent,
 	],
 	imports: [
 		BrowserModule,
+		AdminModule,
 		AppRoutesModule,
 		HttpClientModule,
 		NgHttpLoaderModule.forRoot(),
 		FormsModule,
 		ReactiveFormsModule,
 	],
-	providers: [],
+	providers: [LoginService, BasketModel],
 	bootstrap: [AppComponent],
+	exports: [ClickStopPropagationDirective],
 })
 export class AppModule {}

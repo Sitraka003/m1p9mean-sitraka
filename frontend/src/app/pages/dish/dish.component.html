@@ -1,0 +1,104 @@
+<!-- PAGE HERO
+			============================================= -->
+<div id="contacts-page" class="page-hero-section division">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="hero-txt text-center white-color">
+
+					<!-- Title -->
+					<h2 class="h2-xl">{{dish.name}}</h2>
+
+				</div>
+			</div>
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</div>    <!-- END PAGE HERO -->
+
+
+<section id="product-1" class="pt-100 single-product division">
+	<div class="container">
+
+
+		<div class="row">
+			<div class="col-lg-7 d-flex align-items-center">
+				<div class="d-block w-100">
+					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div *ngFor="let img of dish.images | keyvalue"  class="carousel-item {{img.key === '0' ? 'active' : ''}}">
+								<img class="d-block mr-auto ml-auto" src="{{img.value}}" alt="First slide" style="height: 300px !important;">
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- PRODUCT DISCRIPTION -->
+			<div class="col-lg-5">
+				<div class="product-description">
+
+					<!-- TITLE -->
+					<div class="project-title">
+
+						<!-- Title -->
+						<h2 class="h2-lg">{{dish.name}}</h2>
+
+						<!-- Rating -->
+						<div class="stars-rating">
+							<span>4.38</span>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+
+						<!-- Price -->
+						<div class="project-price">
+							<h4 class="h4-xl yellow-color">{{dish.price}} Ar</h4>
+						</div>
+
+					</div>
+
+					<!-- TEXT -->
+					<div class="product-txt">
+
+						<!-- Text -->
+						<p class="p-md grey-color">{{dish.description}}
+						</p>
+
+						<!-- Product Data -->
+						<div class="product-info">
+							<p>Portion Size: <span>390g</span></p>
+							<p>Calories: <span>680Kj</span></p>
+							<p>Allergies: <span>Lactose, Gluten, Mustard</span></p>
+							<p *ngIf="dish.tags.length > 0">Tags: {{dish.tags}}</p>
+						</div>
+
+						<input class="qty" type="number" min="1" max="20" [(ngModel)]="quantity">
+
+						<!-- Add To Cart -->
+						<div class="add-to-cart-btn bg-yellow ico-20 text-center">
+							<a href="" appClickStopPropagation (click)="addToCart(dish)"><span class="flaticon-shopping-bag"></span> Ho vidiko</a>
+						</div>
+
+
+					</div>    <!-- END TEXT-->
+
+				</div>
+			</div>    <!-- END PRODUCT DISCRIPTION -->
+
+
+		</div>      <!-- End row -->
+	</div>       <!-- End container -->
+</section>

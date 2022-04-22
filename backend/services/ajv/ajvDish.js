@@ -16,7 +16,7 @@ module.exports = {
 				description: {
 					type: ["string"],
 					minLength: 1,
-					maxLength: 160,
+					maxLength: 1200,
 				},
 				price: {
 					type: ["string", "number"],
@@ -40,6 +40,13 @@ module.exports = {
 					type: ["string"],
 					minLength: 1,
 					pattern: AJV_OBJECTID,
+				},
+				images: {
+					type: "array",
+					items: {
+						type: ["string", "null"],
+						minLength: 0,
+					},
 				},
 			},
 		};

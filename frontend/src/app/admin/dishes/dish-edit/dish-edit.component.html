@@ -1,0 +1,54 @@
+<div class="container pt-20">
+	<ol class="breadcrumb float-right">
+		<li class="breadcrumb-item"><a routerLink="/admin">Admin</a></li>
+		<li class="breadcrumb-item active text-warning">Dishes</li>
+	</ol>
+	<div class="mt-30 pt-20">
+		<div class="header">
+			<h2 class="title">Dish Detail</h2>
+		</div>
+		<div class="content">
+			<div *ngIf="feedback.message" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+			<form *ngIf="dish" #editForm="ngForm" (ngSubmit)="save()">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input [(ngModel)]="dish.name" id="name" name="name" class="form-control" [required]="true">
+				</div>
+
+				<div class="form-group">
+					<label for="description">Description</label>
+					<input [(ngModel)]="dish.description" id="description" name="description"
+						   class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="price">Price</label>
+					<input [(ngModel)]="dish.price" id="price" name="price" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="restaurantSelect">Restaurants</label>
+					<select class="form-control" id="restaurantSelect" name="restaurantSelect" [(ngModel)]="dish.restaurant">
+						<option *ngFor="let r of restaurant" [value]="r._id">{{r.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="contacts">Restaurants</label>
+					<input [(ngModel)]="dish.restaurant" id="contacts" name="contacts" class="form-control">
+				</div>
+
+				<label for="contacts">Images</label>
+				<div *ngIf="images.length > 0" class="d-flex justify-content-start mb-30" style="gap: 20px">
+					<img *ngFor="let pre of images" class="img-fluid" [src]="pre || 'assets/images/menu/burger-11.jpg'" alt="menu-image" style="height: 200px !important;"/>
+				</div>
+				<div *ngIf="isEdit" class="alert alert-warning">Importing files will override existant images.</div>
+				<div class="custom-file mb-30">
+					<input type="file" id="images" name="images" class="custom-file-input" (change)="handleUpload($event)" multiple accept="image/x-png,image/gif,image/jpeg">
+					<label class="custom-file-label" for="images">{{ names }}</label>*
+				</div>
+				<button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Save</button>
+				<button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>
+
