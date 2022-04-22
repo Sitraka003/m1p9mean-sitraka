@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import { EMPTY, Observable } from "rxjs";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { ResponseData } from "../../config/constants";
+import { Constants, ResponseData } from "../../config/constants";
 
 const headers = new HttpHeaders().set("Accept", "application/json");
 
 @Injectable()
 export class LoginService {
 	isConnected = false;
-	api = "http://localhost:3000/api/client/login";
+	api = Constants.API_ENDPOINT_PROD + "/api/client/login";
 	httpOptions = {
 		headers: new HttpHeaders({
 			"Content-Type": "application/json",

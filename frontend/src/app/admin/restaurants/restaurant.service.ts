@@ -3,14 +3,14 @@ import { RestaurantFilter } from "./restaurant-filter";
 import { Injectable } from "@angular/core";
 import { EMPTY, Observable } from "rxjs";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { ResponseData } from "../../config/constants";
+import { Constants, ResponseData } from "../../config/constants";
 
 const headers = new HttpHeaders().set("Accept", "application/json");
 
 @Injectable()
 export class RestaurantService {
 	restaurantList: Restaurant[] = [];
-	api = "http://localhost:3000/api/restaurant";
+	api = Constants.API_ENDPOINT_PROD + "/api/restaurant";
 
 	constructor(private http: HttpClient) {}
 

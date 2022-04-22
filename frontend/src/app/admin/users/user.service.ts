@@ -3,7 +3,7 @@ import { UserFilter } from "./user-filter";
 import { Injectable } from "@angular/core";
 import { EMPTY, Observable } from "rxjs";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { ResponseData } from "../../config/constants";
+import { Constants, ResponseData } from "../../config/constants";
 import { Utilities } from "../../config/utilities";
 
 const headers = new HttpHeaders().set("Accept", "application/json");
@@ -11,7 +11,7 @@ const headers = new HttpHeaders().set("Accept", "application/json");
 @Injectable()
 export class UserService {
 	userList: User[] = [];
-	api = "http://localhost:3000/api/user";
+	api = Constants.API_ENDPOINT_PROD + "/api/user";
 
 	constructor(private http: HttpClient) {}
 
