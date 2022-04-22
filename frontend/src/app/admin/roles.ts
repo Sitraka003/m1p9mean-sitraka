@@ -6,11 +6,11 @@ export class ROLES {
 	static ADMIN_RESTAURANT = "Admin Restaurant";
 	static DELIVERER = "Deliverer";
 
-	geRoles() {
+	getRoles() {
 		this.roles = [
-			ROLES.CLIENT,
 			ROLES.ADMIN_EKALY,
 			ROLES.ADMIN_RESTAURANT,
+			ROLES.CLIENT,
 			ROLES.DELIVERER,
 		];
 		return this.roles;

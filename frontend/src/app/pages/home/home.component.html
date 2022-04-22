@@ -162,17 +162,14 @@
 						<div class="hover-overlay">
 
 							<!-- Image -->
-							<img class="img-fluid" src="assets/images/menu/burger-11.jpg" alt="menu-image"/>
+<!--							<img class="img-fluid" src="{{'data:image/jpg;base64,' + item.images[0]}}" alt="menu-image"/>-->
+							<img class="d-block ml-auto mr-auto" [src]="item.images[0] || 'assets/images/menu/burger-11.jpg'" alt="menu-image" style="height: 200px !important;"/>
+<!--							<img class="img-fluid" src="assets/images/menu/burger-11.jpg" alt="menu-image"/>-->
 
 							<!-- Item Code -->
 							<span class="item-code bg-tra-dark">Code: 0850</span>
 
-							<!-- Zoom Icon -->
-							<div class="menu-img-zoom ico-25">
-								<a href="assets/images/menu/burger-11.jpg" class="image-link">
-									<span class="flaticon-zoom"></span>
-								</a>
-							</div>
+
 
 						</div>
 					</div>

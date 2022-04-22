@@ -41,6 +41,13 @@ module.exports = {
 					minLength: 1,
 					pattern: AJV_OBJECTID,
 				},
+				images: {
+					type: "array",
+					items: {
+						type: ["string", "null"],
+						minLength: 0,
+					},
+				},
 			},
 		};
 	},

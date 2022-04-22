@@ -53,7 +53,7 @@
 							<td data-label="Product" class="product-name">
 
 								<!-- Preview -->
-								<div class="cart-product-img"><img src="images/menu/burger-07.png" alt="cart-preview">
+								<div class="cart-product-img"><img [src]="item.dish.images[0] || 'assets/images/menu/burger-11.jpg'" alt="cart-preview">
 								</div>
 
 								<!-- Description -->
@@ -70,7 +70,7 @@
 								<input class="qty" [(ngModel)]="item.quantity" type="number" min="1" max="20">
 							</td>
 							<td data-label="Total" class="product-price-total text-right"><h5
-								class="h5-md">{{ item.subTotal }} Ar</h5></td>
+								class="h5-md">{{ item.dish.price * item.quantity }} Ar</h5></td>
 							<td data-label="Delete" class="td-trash"><i (click)="remove(item)" class="far fa-trash-alt"></i></td>
 
 						</tr>

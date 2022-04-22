@@ -54,6 +54,14 @@ export class RestaurantComponent implements OnInit {
 			);
 	}
 
+	goTo(item: any, type: string) {
+		if (type === "restaurant") {
+			this.router.navigate(["/restaurant/", <Restaurant>item._id]);
+		} else if (type === "dish") {
+			this.router.navigate(["/dish/", <Dish>item._id]);
+		}
+	}
+
 	addToCart(item: Dish) {
 		this.basketModel.addDish(item, 1);
 	}

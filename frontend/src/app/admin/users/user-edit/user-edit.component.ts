@@ -17,7 +17,7 @@ export class UserEditComponent implements OnInit {
 	isEdit: boolean = false;
 
 	get rolesList() {
-		return this.roles.geRoles();
+		return this.roles.getRoles();
 	}
 
 	constructor(
@@ -55,6 +55,7 @@ export class UserEditComponent implements OnInit {
 	}
 
 	save() {
+		console.log(this.user);
 		this.userService.save(this.user).subscribe(
 			(user) => {
 				this.user = user;

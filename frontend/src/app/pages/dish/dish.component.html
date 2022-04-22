@@ -18,64 +18,29 @@
 
 <section id="product-1" class="pt-100 single-product division">
 	<div class="container">
+
+
 		<div class="row">
-
-
-			<!-- PRODUCT IMAGE -->
-			<div class="col-lg-7">
-				<div class="product-preview">
-
-
-					<!-- TABS CONTENT -->
-					<div class="tabs-content">
-
-						<!-- TAB-1 CONTENT -->
-						<div id="tab-1-img" class="tab-content text-center displayed">
-							<img class="img-fluid" src="https://picsum.photos/600" alt="menu-image">
-						</div>
-
-						<!-- TAB-2 CONTENT -->
-						<div id="tab-2-img" class="tab-content text-center">
-							<img class="img-fluid" src="https://picsum.photos/400" alt="menu-image">
-						</div>
-
-						<!-- TAB-3 CONTENT -->
-						<div id="tab-3-img" class="tab-content text-center">
-							<img class="img-fluid" src="https://picsum.photos/300" alt="menu-image">
-						</div>
-
-					</div>    <!-- END TABS CONTENT -->
-
-
-					<!-- TABS NAVIGATION -->
-					<div class="tabs-nav">
-						<div class="row">
-							<div class="col-lg-12 text-center">
-								<ul class="tabs-2 clearfix">
-
-									<!-- TAB-1 LINK -->
-									<li class="tab-link displayed" data-tab="tab-1-img">
-										<img src="https://picsum.photos/600" alt="menu-image">
-									</li>
-
-									<!-- TAB-2 LINK -->
-									<li class="tab-link" data-tab="tab-2-img">
-										<img src="https://picsum.photos/400" alt="menu-image">
-									</li>
-
-									<!-- TAB-2 LINK -->
-									<li class="tab-link" data-tab="tab-3-img">
-										<img src="https://picsum.photos/300" alt="menu-image">
-									</li>
-
-								</ul>
+			<div class="col-lg-7 d-flex align-items-center">
+				<div class="d-block w-100">
+					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div *ngFor="let img of dish.images | keyvalue"  class="carousel-item {{img.key === '0' ? 'active' : ''}}">
+								<img class="d-block mr-auto ml-auto" src="{{img.value}}" alt="First slide" style="height: 300px !important;">
 							</div>
 						</div>
-					</div> <!-- END TABS NAVIGATION -->
-
-
+						<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
 				</div>
-			</div>    <!-- END PRODUCT IMAGE -->
+			</div>
+
 
 
 			<!-- PRODUCT DISCRIPTION -->
@@ -96,7 +61,6 @@
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star-half-alt"></i>
-							<span>(3 Customer Reviews)</span>
 						</div>
 
 						<!-- Price -->

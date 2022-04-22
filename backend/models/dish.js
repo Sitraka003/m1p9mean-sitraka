@@ -14,6 +14,7 @@ const dishSchema = new Schema({
 		default: 0,
 	},
 	restaurant: { type: ObjectId, ref: "Dish", required: true },
+	images: [String]
 });
 
 module.exports = dishSchema;

@@ -14,11 +14,11 @@ module.exports.USER_FIND =
 module.exports.USER_FIND_POPULATE = "_id name firstname address email contacts";
 
 module.exports.RESTO_CREATE = "name description address contacts tags";
-module.exports.RESTO_FIND = "_id name description address contacts tags";
+module.exports.RESTO_FIND = "_id name description address contacts tags images";
 module.exports.RESTO_UPDATE = "description address contacts tags";
 
-module.exports.DISH_CREATE = "name description price tags restaurant";
-module.exports.DISH_FIND = "_id name description price status tags restaurant";
+module.exports.DISH_CREATE = "name description price tags restaurant images";
+module.exports.DISH_FIND = "_id name description price status tags restaurant images";
 module.exports.DISH_UPDATE = "name description price status tags";
 
 module.exports.ORDER_CREATE = "basket client address";

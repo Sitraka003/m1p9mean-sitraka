@@ -4,6 +4,7 @@ export class Dish {
 	description!: string;
 	price!: number;
 	restaurant!: string;
-	tags!: [string];
+	tags!: string[];
 	status!: number;
+	images!: string[]
 }
