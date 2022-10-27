@@ -8,7 +8,7 @@ const headers = new HttpHeaders().set("Accept", "application/json");
 @Injectable()
 export class LoginService {
 	isConnected = false;
-	api = Constants.API_ENDPOINT_PROD + "/api/client/login";
+	api = Constants.API_ENDPOINT_PROD + "api/client/login";
 	httpOptions = {
 		headers: new HttpHeaders({
 			"Content-Type": "application/json",
