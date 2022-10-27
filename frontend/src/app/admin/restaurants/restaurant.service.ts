@@ -10,7 +10,7 @@ const headers = new HttpHeaders().set("Accept", "application/json");
 @Injectable()
 export class RestaurantService {
 	restaurantList: Restaurant[] = [];
-	api = Constants.API_ENDPOINT_PROD + "/api/restaurant";
+	api = Constants.API_ENDPOINT_PROD + "api/restaurant";
 
 	constructor(private http: HttpClient) {}
 

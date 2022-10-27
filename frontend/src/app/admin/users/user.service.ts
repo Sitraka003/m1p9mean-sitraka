@@ -11,7 +11,7 @@ const headers = new HttpHeaders().set("Accept", "application/json");
 @Injectable()
 export class UserService {
 	userList: User[] = [];
-	api = Constants.API_ENDPOINT_PROD + "/api/user";
+	api = Constants.API_ENDPOINT_PROD + "api/user";
 
 	constructor(private http: HttpClient) {}
 

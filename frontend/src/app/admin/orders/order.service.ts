@@ -10,7 +10,7 @@ const headers = new HttpHeaders().set("Accept", "application/json");
 @Injectable()
 export class OrderService {
 	orderList: Order[] = [];
-	api = Constants.API_ENDPOINT_PROD + "/api/order";
+	api = Constants.API_ENDPOINT_PROD + "api/order";
 
 	constructor(private http: HttpClient) {}
 

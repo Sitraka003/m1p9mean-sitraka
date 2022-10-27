@@ -10,7 +10,7 @@ const headers = new HttpHeaders().set("Accept", "application/json");
 @Injectable()
 export class DishService {
 	dishList: Dish[] = [];
-	api = Constants.API_ENDPOINT_PROD + "/api/dish";
+	api = Constants.API_ENDPOINT_PROD + "api/dish";
 
 	constructor(private http: HttpClient) {}
 
